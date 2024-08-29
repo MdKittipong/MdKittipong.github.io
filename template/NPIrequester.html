@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+  <!-- BEGIN : Head-->
+  <head>
+    <title>E Ticket : NPI Request</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="MIS Request">
+    <meta name="author" content="Forderson">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="shortcut icon" href="../img/logo_ticket.ico">
+    <link rel="stylesheet" type="text/css" href="../css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/perfect-scrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/prism.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <style>
+      .input-sm {
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+      }
+
+      .col-form-label {
+        color: black;
+        font-size: 12px;
+      }
+
+      .top-buffer {
+        margin-top: 10px;
+      }
+
+      .top-buffer2 {
+        margin-top: 20px;
+      }
+
+      .top-buffer3 {
+        margin-top: 5px;
+      }
+
+      .top-buffer4 {
+        margin-top: 15px;
+      }
+
+      .file-upload__label {
+        background-color: rgba(39, 158, 238, 0.9);
+        border-radius: 10px;
+        color: #000;
+        font-size: 16px;
+      
+        padding: 7.5px 10px;
+        cursor: pointer;
+        outline: none;
+      
+        pointer-events: none;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-user-select: none;
+        white-space: nowrap;
+        width: 100%;
+      }
+
+      .file-upload__input {
+        bottom: 0;
+        color: transparent;
+        cursor: pointer;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+      }
+
+      .custom-checkbox {
+        width: 20px; 
+        height: 20px; 
+        cursor: pointer; 
+        border: 2px solid #000; 
+        accent-color: #009DA0; 
+      }
+
+      .custom-checkbox:checked {
+        background-color: #009DA0; 
+        border-color: #009DA0; 
+      }
+
+      input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"]{
+                text-align: center;
+      }
+    </style>
+
+  </head>
+  <body data-col="2-columns" class=" 2-columns ">
+    <div id="cover-spin"></div>
+      <div class="wrapper nav-collapsed menu-collapsed">
+        <div data-active-color="white" data-background-color="info" data-image="../img/06.jpg" class="app-sidebar">
+          <div class="sidebar-header">
+            <div class="logo clearfix"><a href="/home" class="logo-text float-left">
+              <span class="text align-middle"><img src="../img/logo.png"/></span></a>
+            </div>
+          </div>
+          <div class="sidebar-content ">
+            <div class="nav-container">
+              <ul id="main-menu-navigation" data-menu="menu-navigation" data-scroll-to-active="true" class="navigation navigation-main">
+                <li class=" nav-item">
+                  <a href="#">
+                    <i class="fas fa-home"></i>
+                    <span data-i18n="" class="menu-title">Home </span>
+                  </a>
+                </li>
+                <li class=" nav-item">
+                  <a href="NPI.html">
+                    <i class="fas fa-file-text"></i>
+                    <span data-i18n="" class="menu-title">Request List</span>
+                  </a>
+                </li>
+                <li class=" nav-item">
+                  <a href="NPI.html">
+                    <i class="fa fa-inbox" aria-hidden="true"></i>
+                    <span data-i18n="" class="menu-title">All Request List</span>
+                  </a>
+                </li>
+                <li class=" nav-item">
+                  <a href="NPIdashboard.html">
+                      <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                      <span data-i18n="" class="menu-title">Dashboard</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sidebar-background">
+          </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light header-navbar toggle fixed-top gradient-back-to-earth" style="padding-top: 0px;padding-bottom: 0px;">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" data-toggle="collapse" class="navbar-toggle d-lg-none float-left">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <span class="d-lg-none navbar-right navbar-collapse-toggle">
+                <a aria-controls="navbarSupportedContent" href="javascript:;" class="open-navbar-container black">
+                  <i class="ft-more-vertical"></i>
+                </a>
+              </span>
+            </div>
+            <div class="navbar-container">
+              <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                  <li class="dropdown nav-item">
+                    <a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle">
+                      <i class="fas fa-user"></i>
+                      <b>Kittipong Chankhotr</b>  
+                    </a>
+                    <div ngbdropdownmenu="" aria-labelledby="dropdownBasic3" class="dropdown-menu text-left dropdown-menu-right">
+                      <a href="/logout" class="dropdown-item">
+                        <i class="fas fa-power-off mr-2"></i>
+                        <span>Logout</span>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="main-panel">
+          <div class="main-content">
+            <div class="content-wrapper" style="margin-top: 70px">
+              <form method="post" action="/api_NPIrequester_save/" enctype="multipart/form-data">
+                  <input type="hidden" name="csrfmiddlewaretoken" value="r9aGeWUf5QJre3qM0T9rzo21b3rBSzLNToekYDKrHU2HuDutXJjtZiGRB9tapDoW">
+                <div class="card">
+                  <div class="card-header border">
+                    <h4><i class="fa fa-globe"></i> <b>SVI – NPI Requisition</b>
+                      <a href="NPI.html">
+                        <button type="button" class="btn btn-primary input-sm top-buffer4"> Back </button>
+                      </a>
+                    </h4>
+                  </div>
+                  <div class="card-body border  responsive">
+                    <div class="form-body">
+                      <div class="row top-buffer">
+                        <div class="col-xl-2" align="right"><label class="col-form-label">Company:</label></div>
+                        <div class="col-xl-2">
+                          <select required class="form-control input-sm" id="CompanyNIP" name="CompanyNIP">
+                            <option value="">Choose...</option>
+                            <option value="18">SVI2</option>
+                            <option value="19">SEC1</option>
+                          </select>
+                        </div>
+                        <div class="col-xl-2" align="right"><label class="col-form-label">BU:</label></div>
+                        <div class="col-xl-2">
+                          <select required class="form-control input-sm" name="BU" id="BU">
+                            <option value="">Choose...</option>
+                            <option value="20">BD</option>
+                            <option value="21">BU1</option>
+                            <option value="22">BU2</option>
+                            <option value="23">BU3</option>
+                          </select>
+                        </div>
+                        <div class="col-xl-2" align="right"><label class="col-form-label">CFT:</label></div>
+                        <div class="col-xl-2">
+                          <select required class="form-control input-sm" name="CFT" id="CFT">
+                            <option value="">Choose...</option>
+                            <option value="24">CFT1</option>
+                            <option value="25">CFT2</option>
+                            <option value="26">CFT3</option>
+                            <option value="27">CFT4</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row top-buffer2">
+                        <div class="col-xl-2" align="right"><label class="col-form-label">Request Type:</label></div>
+                        <div class="col-xl-2">
+                          <select required class="form-control input-sm" name="RequestType" id="RequestType">
+                            <option value="">Choose...</option>
+                            <option value="Other">Other</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Materials &amp; Engineering">Materials &amp; Engineering</option>
+                          </select>
+                        </div>
+                        <div class="col-xl-2" align="right"><label class="col-form-label">Project Type:</label></div>
+                        <div class="col-xl-2">
+                          <select required class="form-control input-sm" name="ProjectType" id="ProjectType">
+                            <option value="">Choose...</option>
+                            <option value="30">NPI Project</option>
+                            <option value="31">Other.</option>
+                          </select>
+                        </div>
+                        <div class="col-xl-2" align="right"><label class="col-form-label">Customer Name:</label></div>
+                        <div class="col-xl-2">
+                          <input required type="text" class="form-control input-sm" name="CustomerName" id="CustomerName" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END ROW 1 -->
+                  <div class="card-body border responsive">
+                    <div class="card-content">
+                      <div class="row top-buffer">
+                        <div class="col-xl-2" align="right"><label class="col-form-label">Project Name:</label></div>
+                        <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="Project" name="Project"placeholder=""></div>
+                        <div class="col-xl-2" align="right"> <label class="col-form-label">Application Name:</label></div>
+                        <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="Application"id="Application" placeholder=""></div>
+                        <div class="col-xl-2" align="right"><label class="col-form-label">Description:</label></div>
+                        <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="Description" name="Description"placeholder=""></div>
+                      </div>
+                      <div class="row top-buffer">
+                        <div class="col-xl-2" align="right"> <label class="col-form-label">Customer BOM Version:</label></div>
+                        <div class="col-xl-2"> <input required type="text" class="form-control input-sm" name="BOM" id="BOM" placeholder=""></div>
+                        <div class="col-xl-2" align="right"> <label class="col-form-label">NPI Gate:</label></div>
+                        <div class="col-xl-2"> 
+                          <select required class="form-control input-sm" name="NPI_Gate" id="NPI_Gate">
+                            <option value="">Choose...</option>
+                            <option value="FA">FA</option>
+                            <option value="Prototype">Prototype</option>
+                            <option value="Mass">Mass</option>
+                          </select>
+                        </div>
+                        <!-- <div class="col-xl-2" align="right"> <label class="col-form-label">Build Type:</label></div>
+                        <div class="col-xl-2"> 
+                          <select required class="form-control input-sm" name="Build_Type" id="Build_Type">
+                            <option value="">Choose...</option>
+                            <option value="PCBA">PCBA</option>
+                            <option value="Box Build">Box Build</option>
+                            <option value="Sparepart">Sparepart</option>
+                          </select>
+                        </div> -->
+                      </div>
+                      <div class="row">
+                        <div class="col-xl-2" align="right"><label class="col-form-label">Quantity Build :</label></div>
+                        <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="Quantity" id="Quantity" placeholder=""></div>
+                        <div class="col-xl-2" align="right"><label class="col-form-label">TAM(USD) :</label></div>
+                        <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="TAM" id="TAM" placeholder=""></div>
+                        <div class="col-xl-2" align="right"><label class="col-form-label">Customer Grade:</label></div>
+                        <div class="col-xl-2"><input required type="text" maxlength="15" class="form-control input-sm" name="Grade" id="Grade" placeholder=""></div>
+                      </div>
+                      <div class="row top-buffer">
+                        <div class="col-xl-2" align="right"> <label class="col-form-label" id="PAR">Potential Annual Revenue (USD):</label></div>
+                        <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="PARUSD" id="PARUSD" placeholder=""></div>
+                        <div class="col-xl-2" align="right"><label class="col-form-label" id="EAU">Estimate Annual Usage (Qty.):</label></div>
+                        <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="EAUQTY" id="EAUQTY" placeholder=""></div>
+                        <div class="col-xl-2" align="right"> <label class="col-form-label">Unit Price(USD):</label></div>
+                        <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="UnitPrice" id="UnitPrice" placeholder=""></div>
+                      </div>
+                      <div class="row top-buffer">
+                        <!-- <div class="col-xl-2 responsible" align="right">
+                          <label class="col-form-label">Responsible by Engineering Team:</label>
+                        </div>
+                        <div class="col-xl-3 responsible">
+                          <select required class="form-control input-sm" name="responsible" id="responsible">
+                            <option value="">Choose...</option>
+                            <option value="G1 (NPI Engineer Team)">G1 (NPI Engineer Team)</option>
+                            <option value="G2 (Sustaining Engineer Team)">G2 (Sustaining Engineer Team)</option>
+                          </select>
+                        </div> -->
+                        <div class="col-xl-2" align="right"> <label class="col-form-label">Project reference:</label></div>
+                        <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="UnitPrice" id="UnitPrice" placeholder="optional"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END ROW 2 -->
+                  <!-- <div class="card-body border responsive">
+                    <button type="button" id="addRow" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i></button>
+                    <button type="button" id="deleterow" class="btn btn-sm btn-danger"><i class="fa fa-minus"></i></button>
+                    <div class="row table-responsive-sm">
+                      <div class="col-sm-12 col-xl-6">
+                        <label class="col-form-label">BOX BUILD & PCBA</label>
+                        <table id="npiTable" class="table table-striped table-hover table-bordered nowrap w-100">
+                          <thead>
+                            <tr>
+                              <th class="text-center" style="width: 30%;">
+                                BOX Build Part Number
+                              </th>
+                              <th class="text-center" style="width: 30%;">
+                                PCBBA Part Number
+                              </th>
+                              <th class="text-center" style="width: 30%;">
+                                Description
+                              </th>
+                            </tr>
+                          </thead>
+                        </table>
+                      </div>
+                      <div class="col-sm-12 col-xl-6">
+                        <label class="col-form-label">NPI Production Plan</label>
+                        <table id="npi2Table_design" class="table table-striped table-hover table-bordered nowrap w-100">
+                          <thead>
+                            <tr>
+                              <th class="text-center">Build Type</th>
+                              <th class="text-center" style="width: 20%;">Date</th>
+                              <th class="text-center" style="width: 20%;">Work <br> Week</th>
+                            </tr>
+                          </thead>
+                        </table>
+                      </div>
+                    </div>
+                  </div> -->
+                  <!-- END ROW 3 -->
+                  <div class="card-body border">
+                    <div class="row top-buffer">
+                      <div class="col-sm-12 col-xl-12">
+                        <label class="col-form-label">BOX BUILD & PCBA</label>
+                        <table id="doc_req" class="table table-striped table-hover table-bordered nowrap w-100">
+                          <thead>
+                            <tr>
+                              <!-- <th class="text-center" style="width: 35%;">BOX Build Part Number</th> -->
+                              <!-- <th class="text-center" style="width: 35%;">PCBA Part Number</th> -->
+                              <th class="text-center" style="width: 15%;">Build Type</th>
+                              <th class="text-center">Part Number</th>
+                              <th class="text-center" style="width: 20%;">Kick off date</th>
+                              <th class="text-center" style="width: 20%;">Original build date</th>
+                              <th class="text-center" style="width: 20%;">Ship date</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <!-- <td class="text-center"><input required name="box" maxlength="30"  type="text"  class="form-control input-sm"></td> -->
+                              <!-- <td class="text-center"><input required name="pcbba" maxlength="30"  type="text"  class="form-control input-sm"></td> -->
+                              <td class="text-center">
+                                <select required class="form-control input-sm" name="Build_Type" id="Build_Type">
+                                  <option value="">Choose...</option>
+                                  <option value="PCBA">PCBA</option>
+                                  <option value="Box Build">Box Build</option>
+                                  <option value="Sparepart">Sparepart</option>
+                                </select>
+                              </td>
+                              <td class="text-center"><input required name="part_number" maxlength="30"  type="text"  class="form-control input-sm"></td>
+                              <td class="text-center"><input required name="kick_off_date" id="kick_off_date" type="date" class="form-control input-sm"></td>
+                              <td class="text-center"><input required name="original_build_date" id="original_build_date" type="date" class="form-control input-sm"></td>
+                              <td class="text-center"><input required name="ship_date" id="ship_date" type="date" class="form-control input-sm"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body border">
+                    <div class="row top-buffer">
+                      <div class="col-sm-12 col-xl-12">
+                        <label class="col-form-label">DOCUMENT REQUIREMENT<i class="fa fa-exclamation-circle btn" type="button" data-toggle="modal" data-target="#announcementModal" style="color:#009DA0"></i></label>
+                        <table id="doc_req" class="table table-striped table-hover table-bordered nowrap w-100">
+                          <thead>
+                            <tr>
+                              <th class="text-center" style="width: 35%;">Document</th>
+                              <!-- <th class="text-center" style="width: 10%;">Require</th> -->
+                              <th class="text-center" style="width: 10%;">Upload</th>
+                              <th class="text-center">Remark</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Gerber (single)</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="gerber1_doc" name="gerber1_doc"></div></td> -->
+                              <td><input type="file" id="gerber1_formFile" name="gerber1_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='gerber1_remark' id="gerber1_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Gerber (panel, PD gerber)</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="gerber2_doc" name="gerber2_doc"></div></td> -->
+                              <td><input type="file" id="gerber2_formFile" name="gerber2_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='gerber2_remark' id="gerber2_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Document spec (PCB, handling, preparation spec, etc.)</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="document_spec_doc" name="document_spec_doc"></div></td> -->
+                              <td><input type="file" id="document_spec_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='document_spec_remark' id="document_spec_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Assembly drawing</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="assembly_drawing_doc" name="assembly_drawing_doc"></div></td> -->
+                              <td><input type="file" id="assembly_drawing_doc_formFile" name="assembly_drawing_doc_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='assembly_drawing_doc_remark' id="assembly_drawing_doc_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Customer BOM</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="customer_bom_doc" name="customer_bom_doc"></div></td> -->
+                              <td><input type="file" id="customer_bom_formFile" name="customer_bom_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='customer_bom_remark' id="customer_bom_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>SVI BOM</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="svi_bom_doc" name="svi_bom_doc"></div></td> -->
+                              <td><input type="file" id="svi_bom_formFile" name="svi_bom_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='svi_bom_remark' id="svi_bom_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Assembly guidline</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="assembly_guidline_doc" name="assembly_guidline_doc"></div></td> -->
+                              <td><input type="file" id="assembly_guidline_formFile" name="assembly_guidline_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='assembly_guidline_remark' id="assembly_guidline_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Customer 2D, 3D drawing</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="customer_drawing_doc" name="customer_drawing_doc"></div></td> -->
+                              <td><input type="file" id="customer_drawing_formFile" name="customer_drawing_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='customer_drawing_remark' id="customer_drawing_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Customer golden sample unit</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="ccustomer_golden_sample_unit_doc" name="ccustomer_golden_sample_unit_doc"></div></td> -->
+                              <td><input type="file" id="ccustomer_golden_sample_unit_formFile" name="ccustomer_golden_sample_unit_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='ccustomer_golden_sample_unit_remark' id="ccustomer_golden_sample_unit_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Actual component</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="actual_component_doc" name="actual_component_doc"></div></td> -->
+                              <td><input type="file" id="actual_component_formFile" name="actual_component_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='actual_component_remark' id="actual_component_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Actual PCB</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="actual_pcb_doc" name="actual_pcb_doc"></div></td> -->
+                              <td><input type="file" id="actual_pcb_formFile" name="actual_pcb_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='actual_pcb_remark' id="actual_pcb_remark"></textarea></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="col-sm-12 col-xl-12">
+                        <label class="col-form-label">REPORT REQUIREMENT</label>
+                        <table id="report_req" class="table table-striped table-hover table-bordered nowrap w-100">
+                          <thead>
+                            <tr>
+                              <th class="text-center" style="width: 35%; vertical-align: middle;">Report</th>
+                              <th class="text-center" style="width: 10%;">Require <button type="button" class="btn btn-link p-0" id="requireAllBtn" onclick="requireAll()" style=" font-size: 10px; margin-bottom: 0;">Require All</button></th>
+                              <!-- <th class="text-center" style="width: 10%;">Upload</th> -->
+                              <th class="text-center" style="vertical-align: middle;">Remark</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>First Article Samples (FAS)</td>
+                              <td class="text-center">
+                                <div class="form-check">
+                                  <input class="form-check-input custom-checkbox" type="checkbox" id="fas_report" name="fas_report" value="fas_report">
+                                </div>
+                              </td>                              
+                              <!-- <td class="text-center"><input type="file" id="fas_formFile" name="fas_formFile"></td> -->
+                              <td class="text-center"><textarea class="form-control input-sm" rows="1" name='fas_remark' id="fas_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Design for Manufacturing (DFM)</td>
+                              <td class="text-center"><div class="form-check"><input class="form-check-input custom-checkbox" type="checkbox" id="dfm_report" name="dfm_report" value="dfm_report"></div></td>
+                              <!-- <td class="text-center"><input type="file" id="dfm_report_formFile" name="dfm_report_formFile"></td> -->
+                              <td class="text-center"><textarea class="form-control input-sm" rows="1" name='dfm_report_remark' id="dfm_report_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Failure Mode and Effects Analysis (FMEA)</td>
+                              <td class="text-center"><div class="form-check"><input class="form-check-input custom-checkbox" type="checkbox" id="fmea_report" name="fmea_report" value="fmea_report"></div></td>
+                              <!-- <td class="text-center"><input type="file" id="fmea_formFile" name="fmea_formFile"></td> -->
+                              <td class="text-center"><textarea class="form-control input-sm" rows="1" name='fmea_report_remark' id="fmea_report_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Production Part Approval Process (PPAP)</td>
+                              <td class="text-center"><div class="form-check"><input class="form-check-input custom-checkbox" type="checkbox" id="ppap_report" name="ppap_report" value="ppap_report"></div></td>
+                              <!-- <td class="text-center"><input type="file" id="ppap_formFile" name="ppap_formFile"></td> -->
+                              <td class="text-center"><textarea class="form-control input-sm" rows="1" name='ppap_report_remark' id="ppap_report_remark"></textarea></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END ROW 4 -->
+                  <div class="card-body border">
+                    <div class="row top-buffer">
+                      <div class="col-sm-12 col-xl-12">
+                        <label class="col-form-label">Approver<i class="fa fa-exclamation-circle btn" type="button" data-toggle="modal" data-target="#announcementModal" style="color:#009DA0"></i></label>
+                        <div class="row">
+                          <!-- <div class="col-3"> -->
+                            <div class="col-3">
+                              NPI Engineer, Product Engineer
+                              <select required class="form-control input-sm select2" name="npi_pe_approver"id="npi_pe_approver">
+                                <option value=""></option>
+                                <option value="34024">RONNAKRIT MONTEWIN</option>
+                                <option value="48894">CHUTHARAT KAEW-LUAN</option>
+                                <option value="35035">JAMIKORN THAWORNPRASERT</option>
+                                <option value="42256">AEKKARIN LOESRABIAB</option>
+                                <option value="45367">JIRAPAT DAUNGSUWAN</option>
+                                <option value="45366">CHANOKNAT PAOSAKUL</option>
+                                <option value="46031">RAPKHWAN WIRIYAPHAP</option>
+                                <option value="48568">PATTARODOM RUNGRUANGWONG</option>
+                                <option value="48571">ATCHARAPORN YENSUANG</option>
+                                <option value="48640">PHATTHARAPHONG FONGPHIKUN</option>
+                                <option value="48766">NATTAWAT YOOAON</option>
+                                <option value="48862">NATTAKIT SANGHIRUN</option>
+                                <option value="35528">SOMCHAI TOME</option>
+                                <option value="38946">INTRARAK EIAMTANUNG</option>
+                                <option value="40581">RUCHAKORN NONTHIKARN</option>
+                                <option value="44906">NARISARA POMMASIT</option>
+                                <option value="45883">DUANGNATE TIBOON</option>
+                                <option value="37438">KRISADA KENGKHUNTOD</option>
+                                <option value="04239">TANACHOTE PANYANAK</option>
+                                <option value="44619">PEERA PRACHANBAN</option>
+                                <option value="45590">NATHAMON WONGBORH</option>
+                                <option value="44911">MONTRI PHANOMNIVATE</option>
+                                <option value="50923">NORACHON PIYANUNTAVO</option>
+                                <option value="50426">PRATAMAPORN HUTAPHINYO</option>
+                                <option value="45450">PORAWEE PHATTHANAAREEKUL</option>
+                                <option value="50866">PANITAN PORNSIRISAWEE</option>
+                                <option value="27970">PEERAPAT SANGSOONTHORN</option>
+                                <option value="44621">MARISA OPASTIPAKORN</option>
+                                <option value="42415">KANKANOK KANKOSOL</option>
+                                <option value="51561">CHINTANA NAMWONG</option>
+                                <option value="51824">TANAWAT SANNUCHITR</option>
+                                <option value="29397">SONGKLOD BOONSUWANCHOT</option>
+                                <option value="45881">WATCHARAWALEE JANTHONG</option>
+                                <option value="51559">PIYAWAT PHETCHANA</option>
+                                <option value="51887">NUTTHAKAMOL IAMKAMOL</option>
+                                <option value="49837">PITCHADAPA UNPEN</option>
+                                <option value="52561">SUWARA JANKAEW</option>
+                                <option value="51140">CHUTIKARN NOODAM</option>
+                                <option value="51470">DONLAYA KLINBUA</option>
+                                <option value="51820">CHANANYANUCH MAITHOG</option>
+                                <option value="52972">YOO YINGJAROENPOL</option>
+                                <option value="43803">SARANYA PETPHROM</option>
+                                <option value="44620">THANYARET KOPOL</option>
+                                <option value="50927">AROCHA CHAICHANA</option>
+                                <option value="52833">WORRAPAT SEEHABUT</option>
+                                <option value="51924">JARUPA SURACHAIDUNGTAVIL</option>
+                                <option value="46177">PITIPOL KAEWPRAPAI</option>
+                              </select>
+                            </div>
+                            <div class="col-3">
+                              Quality Engineer
+                              <select required class="form-control input-sm select2" name="ie_manager_approver"id="ie_manager_approver">
+                                <option value=""></option>
+                                <option value="05132">MONTREE SUPAPHOL</option>
+                              </select>
+                            </div>
+                            <div class="col-3">
+                              Test Engineer
+                              <select required class="form-control input-sm select2" name="test_engineer_approver"id="test_engineer_approver">
+                                <option value=""></option>
+                                <option value="17355">PANUWAT DURNGKUNTHOD</option>
+                                <option value="45552">LALITAR THAPORN</option>
+                                <option value="51551">APIWAT PROMCHAT</option>
+                                <option value="43203">YUTTAPHUM RAUYDEE</option>
+                                <option value="40503">THAMRONGSAK UTHAIRAT</option>
+                                <option value="43535">WUTTHICHAI LAI-NGAM</option>
+                                <option value="40932">WEERACHAI LERTSKULYANGYUEN</option>
+                                <option value="49404">THANAPOL SUDSALEE</option>
+                                <option value="50015">TECHIT KUNLASETTHAPHA</option>
+                                <option value="18328">KITTI JUISRIKAEW</option>
+                                <option value="12353">NOPPADOL THIMWONG</option>
+                                <option value="17912">SOMPONG SOMBAN</option>
+                                <option value="15274">SUTHON SRIVICHIEN</option>
+                                <option value="10632">KLONG KEAWCHIMPLEE</option>
+                                <option value="49121">KITTIPHOP SOMCHIT</option>
+                                <option value="49308">SANYA AMNARTPLUK</option>
+                                <option value="49350">PASSAWIT KLUMDANG</option>
+                                <option value="49900">KRISANA SEETHONG</option>
+                                <option value="15136">SANTI CHAISIRI</option>
+                                <option value="48130">KANJ TANSUWONGS</option>
+                                <option value="50922">Nattakan Chinnawong</option>
+                                <option value="51943">AUKRID THONGPUN</option>
+                                <option value="50850">Nattapat Kornkaew</option>
+                                <option value="48128">THUNWARAD UTHAICHAI</option>
+                                <option value="52731">TANAPOOM SUTTAPUN</option>
+                                <option value="10206">VEERAPONG PUKAE</option>
+                                <option value="50882">VISARUT CHUNCHATPRASERT</option>
+                                <option value="52595">NATTAPONG THONGSRI</option>
+                                <option value="45448">PHINYO WICHIEANCHOTE</option>
+                                <option value="52737">YADA SARUNYAKUP</option>
+                                <option value="46120">PASKON KUBKATOK</option>
+                                <option value="48501">BORIBOON PAKDEEKRATHOK</option>
+                                <option value="49589">ISAWAN SRINANG</option>
+                                <option value="52836">PHURIPAT YANGNGAM</option>
+                                <option value="52560">LATTAPON CHUMSRI</option>
+                                <option value="46181">KITTISAK PAHINA</option>
+                                <option value="53100">NITIPONG KALUMPASUT</option>
+                                <option value="52976">PORNTHEP THONGPIROM</option>
+                                <option value="53014">PHINYAPAT RODKAEW</option>
+                              </select>
+                            </div>
+                            <div class="col-3">
+                              Production
+                              <select required class="form-control input-sm select2" name="production_approver"id="production_approver">
+                                <option value=""></option>
+                                <option value="04863">WEERAWAN SUPAKARNPITTAYAKUL</option>
+                                <option value="10619">SUNEE KRIDSANACHANDEE</option>
+                                <option value="13513">SUKON SUNGSUWAN</option>
+                                <option value="50865">KANITA DEELEARD</option>
+                              </select>
+                            </div>
+                          <!-- </div> -->
+                      </div>
+                    </div>
+                  </div><br>
+                  <!-- END ROW 5 -->
+                  <div class="card-body border">
+                    <div class="row top-buffer">
+                      <label class="col-form-label">Comment:</label>
+                      <div class="col-sm-12 col-xl-5">
+                        <textarea class="form-control input-sm" rows="3" name='comment' id="comment"></textarea>
+                      </div>
+                      <div class="col-sm-12 col-xl-6 top-buffer2" align="center">
+                        <label for="file"></label>
+                        <div class="container">
+                          <div class="file-upload">
+                            <label class="file-upload__label">Select or drop files here</label>
+                            <input class="file-upload__input" id="inputGroupFile01" multiple type="file" name="file" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row justify-content-center">
+                      <div class="col-sm-12 col-xl-2">
+                        <button id="Summit" type="submit" class="btn btn-block btn-success top-buffer4">Submit</button>
+                      </div>
+                      <div class="col-sm-12 col-xl-2">
+                        <a href="/NPI">
+                          <button type="button" class="btn btn-block btn-primary top-buffer4">BACK </button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Announcement modal -->
+    <div class="modal fade" id="announcementModal" tabindex="-1" aria-labelledby="announcementModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-primary white">
+            <h5 class="modal-title" id="announcementModalLabel">Standard lead time tooling</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="../img/std_leadtime_toolimg.png" alt="" width="100%">
+            <p style="font-weight: bold; display: inline;">Remark: </p>
+            <p style="font-weight: bold; color: red; display: inline;">*</p>
+            <p style="display: inline;">is with complete SMT</p>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="../js/popper.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="../js/prism.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.matchHeight-min.js" type="text/javascript"></script>
+    <script src="../js/screenfull.min.js" type="text/javascript"></script>
+    <script src="../js/pace.min.js" type="text/javascript"></script>
+    <script src="../js/app-sidebar.js" type="text/javascript"></script>
+    <script src="../js/notification-sidebar.js" type="text/javascript"></script>
+    <script src="../js/customizer.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/datatables.min.js"></script>
+
+    <script>
+      window.onload = function() {
+          var announcementModal = new bootstrap.Modal(document.getElementById('announcementModal'));
+          announcementModal.show();
+      };
+
+      // TABLE UPDATE FOR REJECT SOON
+      var table = $('#npiTable').DataTable({
+        "paging": false,
+        "ordering": false,
+        "info": false,
+        'searching':false,
+      })
+
+      var table2 = $('#npi2Table').DataTable({
+        "paging": false,
+        "ordering": false,
+        "info": false,
+        'searching':false,
+      })
+
+      var table2 = $('#npi2Table_design').DataTable({
+        "paging": false,
+        "ordering": false,
+        "info": false,
+        'searching':false,
+      })
+
+      var counter = 0;
+
+      $('#addRow').on( 'click', function () {
+        table.row.add( [
+          '<input required name="box[]" maxlength="30"  type="text"  class="form-control input-sm">',
+          '<input required name="pcbba[]" maxlength="30"  type="text"  class="form-control input-sm">',
+          '<input required name="description[]" maxlength="30"  type="text"  class="form-control input-sm">',
+        ] ).draw( false );
+        table2.row.add( [
+          //'<input required name="producttype[]" maxlength="30"  type="text"  class="form-control input-sm">',
+          '<select required name="build_type[]" maxlength="30" id="build_type'+(counter + 1)+'" "type="text"  class="form-control input-sm"><option selected value="PCBA">PCBA</option><option value="B/B">B/B</option><option value="Sparepart">Sparepart</option></select>',
+          //'<select required name="year[]" maxlength="30" id="year'+(counter + 1)+'" "type="text"  class="form-control input-sm"></select>',
+          //'<select required name="month[]" maxlength="30" id="month'+(counter + 1)+'" "type="text"  class="form-control input-sm">'+'<option value="">' + '</option></select>',
+          //'<select required name="workweek[]" maxlength="30" id="workweek'+(counter + 1)+'" "type="text"  class="form-control input-sm"></select>',
+          '<input required name="date[]" id="date'+(counter + 1)+'" type="date" class="form-control input-sm">',
+          '<input required name="ww_from_date[]" id="ww_from_date'+(counter + 1)+'" type="text" class="form-control input-sm" readonly>',
+        ] ).draw( false );
+        counter++;
+
+        // Add event listener to the newly added date input
+        $(document).on('change', '[id^=date]', function () {
+          const rowId = this.id.match(/\d+/)[0];
+          const selectedDate = new Date(this.value);
+          const wwFromDateInput = document.getElementById('ww_from_date' + rowId);
+
+          if (!isNaN(selectedDate)) {
+              const workweek = getWorkWeek(selectedDate);
+              wwFromDateInput.value = `WW${workweek}`;
+          } else {
+              wwFromDateInput.value = '';
+          }
+        });
+        
+        // FUNCTION SHOW YEAR MONTH AND WORKWEEK  
+        $('#year' + counter).each(function () {
+          var yearnow = (new Date()).getFullYear();
+          var current = yearnow;
+          // yearnow -= 40;
+          for (var i = 0; i < 50; i++) {
+            if ((yearnow + i) == current) {
+              $(this).append('<option selected  value="' + (yearnow + i) + '">' + (yearnow + i) + '</option>');
+            }
+            else { $(this).append('<option value="' + (yearnow + i) + '">' + (yearnow + i) + '</option>'); }
+          }
+          return yearnow
+        });
+
+        $('#month' + counter).each(function () {
+          var totalMonths = 12;
+          var monthNames = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11","12"];
+          for (var i = 0; i < 12; i++) {
+            $(this).append('<option value="' + + (i + 1) + '">' + monthNames[i] + '</option>');
+          }
+          return totalMonths
+        });
+        // FUNCTION CHANGE YEAR MONTH AND WORKWEEK
+        var increase_add = counter.toString();
+        $("#year" + counter).change(function () {
+          $("#month" + increase_add).val("");
+          $("#workweek" + increase_add).val("");
+          $("#workweek" + increase_add).find('option').remove().end().append('<option value=""></option>').val("");
+        });
+        $("#month" + increase_add).change(function () {
+          $("#workweek" + increase_add).find('option').remove().end().append('<option value=""></option>').val("");
+          $("#workweek" + increase_add).val("");
+
+          // FUNCTION CALCULATION WORKWEEK
+          mouthid = $("#month" + increase_add).val()
+          yearid = $("#year" + increase_add).val()
+          monthFrist = parseInt(mouthid) - 1
+          monthEnd = parseInt(mouthid)
+          Date.prototype.getWeek = function () {
+            var onejan = new Date(this.getFullYear(), 0, 1);
+            return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+          }
+          var frist = new Date(yearid, monthFrist, 1);
+          var wend = new Date(yearid, monthEnd, 0);
+
+          var weekfrist = frist.getWeek();
+          var weekend = wend.getWeek();
+          for (var z = weekfrist; z <= weekend; z++) {
+            $("#workweek" + increase_add).append('<option value="' + z + '">' + z + '</option>');
+          }
+        });
+      // console.log(counter)
+      });
+
+      function getWorkWeek(date) {
+        const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+        const pastDaysOfYear = (date - firstDayOfYear) / 86400000;
+        return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+      }
+
+      // ADD
+      $('#addRow').click();    
+      $('#deleterow').on('click', function (){
+        if(counter > 1){
+          table.row((counter-1)).remove().draw();
+          table2.row((counter-1)).remove().draw();
+          counter--;
+        }
+      })
+        
+      $('#Summit').on('click', function (){
+        $('#responsible').attr("disabled", false);
+      })
+
+      var dropdisable = ""
+      // console.log(dropdisable,"dropdisable")
+      $("#RequestType").change(function () {
+        // console.log($("#RequestType").val())
+        if( $("#RequestType").val() == "Other" ){
+          $('#responsible').find('option').remove().end().append('<option value="Disable">Disable</option>').val("Disable");
+          $('#responsible').val("Disable");
+        }
+        else if( $("#RequestType").val() == "Engineering" || $("#RequestType").val() == "Materials & Engineering" || $("#RequestType").val() == ""){
+          $('#responsible').val("");
+          $('#responsible').find('option').remove().end().append('<option value="">Choose</option>                                             <option value="G1 (NPI Engineer Team)">G1 (NPI Engineer Team)</option>      <option value="G2 (Sustaining Engineer Team)">G2 (Sustaining Engineer Team)</option>                              ').val("");
+        }
+      });
+      // FUNCTION UPLOAD
+      (function () {
+        $(function () {
+          return $('.file-upload__input').on('change', function () {
+            return $('.file-upload__label').html([this.files.length, 'Files to upload'].join(' '));
+          });
+        });
+      }).call(this);
+
+      document.addEventListener('DOMContentLoaded', (event) => {
+          const today = new Date().toISOString().split('T')[0];
+          document.querySelectorAll('input[type="date"]').forEach(input => {
+              input.value = today;
+          });
+      });
+
+      function requireAll() {
+        const checkboxes = document.querySelectorAll('#report_req .form-check-input');
+        checkboxes.forEach(checkbox => {
+          checkbox.checked = true;
+        });
+      }
+    </script>
+
+  </body>
+</html>
