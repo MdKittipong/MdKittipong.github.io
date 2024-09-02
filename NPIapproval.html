@@ -333,18 +333,20 @@
                                                             <hr>
                                                             <div class="card-content">
                                                                 <div class="row">
-                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">Project Name:</label></div>
-                                                                    <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="Project" name="Project" placeholder="" value="LGP908-222727LF" readonly></div>
-                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">Application Name:</label></div>
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">SVI Part number:</label></div>
+                                                                    <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="svi_part_number" name="svi_part_number" placeholder="" value="LGP908-222727LF" readonly></div>
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">Customer Part number:</label></div>
+                                                                    <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="customer_part_number" name="customer_part_number"placeholder="" readonly></div>
+                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">Project Application:</label></div>
                                                                     <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="Application"id="Application" placeholder="" readonly></div>
-                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">Description:</label></div>
-                                                                    <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="Description" name="Description"placeholder="" readonly></div>
                                                                 </div>
                                                                 <div class="row top-buffer3">
-                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">Customer BOM Version:</label></div>
+                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">Customer BOM Revision:</label></div>
                                                                     <div class="col-xl-2"> <input required type="text" class="form-control input-sm" name="BOM" id="BOM" placeholder="" readonly></div>
                                                                     <div class="col-xl-2" align="right"> <label class="col-form-label">NPI Gate:</label></div>
                                                                     <div class="col-xl-2"> <input required type="text" class="form-control input-sm" name="NPI_Gate" id="NPI_Gate" placeholder="" readonly></div>
+                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">Build type:</label></div>
+                                                                    <div class="col-xl-2"> <input required type="text" class="form-control input-sm" name="Build_Type" id="Build_Type" placeholder="" readonly></div>
                                                                 </div>
                                                                 <div class="row top-buffer3">
                                                                     <div class="col-xl-2" align="right"><label class="col-form-label">Quantity Build :</label></div>
@@ -367,43 +369,11 @@
                                                                     <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="UnitPrice" id="UnitPrice" placeholder="-" readonly></div>
                                                                 </div>
                                                             </div>
-                                                            
-                                                            <hr>
-                                                            <div class="card-content">
-                                                                <div class="col-sm-12 col-xl-12"><label class="col-form-label mb-1">Responsible</label>
-                                                                  <div class="row">
-                                                                    <div class="col-3">
-                                                                      <label class="col-form-label">NPI / Product Engineer:</label>
-                                                                      <input required type="text" class="form-control input-sm" name="npi_pe_approver" id="npi_pe_approver" placeholder="" readonly>
-                                                                    </div>
-                                                                    <div class="col-3">
-                                                                      <label class="col-form-label">Quality Engineer:</label>
-                                                                      <input required type="text" class="form-control input-sm" name="qe_approver" id="qe_approver" placeholder="" readonly>
-                                                                    </div>
-                                                                    <div class="col-3">
-                                                                      <label class="col-form-label">Test Engineer:</label>
-                                                                      <input required type="text" class="form-control input-sm" name="test_engineer_approver" id="test_engineer_approver" placeholder="" readonly>
-                                                                    </div>
-                                                                    <div class="col-3">
-                                                                      <label class="col-form-label">Production:</label>
-                                                                      <input required type="text" class="form-control input-sm" name="production_approver" id="production_approver" placeholder="" readonly>
-                                                                    </div>
-                                                                  </div>
-                                                                </div>
-                                                            </div>
 
                                                             <hr>
                                                             <div class="card-content">
                                                                 <div class="col-sm-12 col-xl-12"><label class="col-form-label mb-1">Project Detail</label>
                                                                   <div class="row">
-                                                                    <div class="col">
-                                                                      <label class="col-form-label">Build type:</label>
-                                                                      <input required type="text" class="form-control input-sm" name="build_type" id="build_type" placeholder="" readonly>
-                                                                    </div>
-                                                                    <div class="col">
-                                                                      <label class="col-form-label">Part number:</label>
-                                                                      <input required type="text" class="form-control input-sm" name="part_number" id="part_number" placeholder="" readonly>
-                                                                    </div>
                                                                     <div class="col">
                                                                       <label class="col-form-label">Kick off date:</label>
                                                                       <input required type="text" class="form-control input-sm" name="kick_off_date" id="kick_off_date" placeholder="" readonly>
@@ -417,6 +387,31 @@
                                                                       <input required type="text" class="form-control input-sm" name="ship_date" id="ship_date" placeholder="" readonly>
                                                                     </div>
                                                                   </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <hr>
+                                                            <div class="card-content">
+                                                                <div class="col-sm-12 col-xl-12">
+                                                                    <label class="col-form-label mb-1">Responsible</label>
+                                                                    <div class="row">
+                                                                        <div class="col-3">
+                                                                            <label class="col-form-label">NPI / Product Engineer:</label>
+                                                                            <button type="button" class="form-control input-sm btn btn-secondary" id="npi_pe_approver_btn" data-role="NPI / Product Engineer">Montri Phanomnivate</button>
+                                                                        </div>
+                                                                        <div class="col-3">
+                                                                            <label class="col-form-label">Quality Engineer:</label>
+                                                                            <button type="button" class="form-control input-sm btn btn-secondary" id="qe_approver_btn" data-role="Quality Engineer">Yingyos Sookchai</button>
+                                                                        </div>
+                                                                        <div class="col-3">
+                                                                            <label class="col-form-label">Test Engineer:</label>
+                                                                            <button type="button" class="form-control input-sm btn btn-secondary" id="test_engineer_approver_btn" data-role="Test Engineer">Phinyo Wichieanchote</button>
+                                                                        </div>
+                                                                        <div class="col-3">
+                                                                            <label class="col-form-label">Production:</label>
+                                                                            <button type="button" class="form-control input-sm btn btn-secondary" id="production_approver_btn" data-role="Production">Adisak Silapachai</button>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -957,34 +952,65 @@
             </div>
         </div>
 
+        <!-- Re-assign -->
+        <div class="modal fade" id="responsibleModal" tabindex="-1" aria-labelledby="responsibleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="responsibleModalLabel">Assign New Responsible</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="newResponsible">Select New Responsible Person</label>
+                                <select class="form-control" id="newResponsible">
+                                    <option value="Person1">Person 1</option>
+                                    <option value="Person2">Person 2</option>
+                                    <option value="Person3">Person 3</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
         <!-- Approval modal -->
         <div class="modal fade" id="approval_modal" tabindex="-1" aria-labelledby="approval_modalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <div class="modal-header bg-primary white">
-                    <h5 class="modal-title" id="labelModalLabel">APPROVAL FORM</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-check form-check-inline mr-3">
-                        <input class="form-check-input custom-radio" type="radio" name="aproval_result" id="approve" value="approve" checked>
-                        <label class="form-check-label custom-label" for="approve">Approve</label>
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="labelModalLabel">APPROVAL FORM</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input custom-radio-2" type="radio" name="aproval_result" id="return" value="return">
-                        <label class="form-check-label custom-label-2" for="return">Return to PGMNT</label>
+                    <div class="modal-body">
+                        <div class="form-check form-check-inline mr-3">
+                            <input class="form-check-input custom-radio" type="radio" name="aproval_result" id="approve" value="approve" checked>
+                            <label class="form-check-label custom-label" for="approve">Approve</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input custom-radio-2" type="radio" name="aproval_result" id="return" value="return">
+                            <label class="form-check-label custom-label-2" for="return">Return to PGMNT</label>
+                        </div>
+                        <div class="form-group mt-3" id="remarkGroup" hidden>
+                            <label for="box_build_remark">Detail</label>
+                            <textarea class="form-control input-sm" rows="2" name="box_build_remark" id="box_build_remark"></textarea>
+                        </div>
                     </div>
-                    <div class="form-group mt-3" id="remarkGroup" hidden>
-                        <label for="box_build_remark">Detail</label>
-                        <textarea class="form-control input-sm" rows="2" name="box_build_remark" id="box_build_remark"></textarea>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
-                    <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
-                </div>
                 </div>
             </div>
         </div>
@@ -1020,6 +1046,7 @@
                                 <option value="Press fit nut">Press fit nut</option>
                                 <option value="Assembly fixture">Assembly fixture</option>
                                 <option value="Fixture support for RTV glue">Fixture support for RTV glue</option>
+                                <option value="Coating/Potting Fixture">Coating/Potting Fixture</option>
                                 <option value="Simple tooling/equipment">Simple tooling/equipment</option>
                                 <option value="Complex tooling/equipment">Complex tooling/equipment</option>
                             </select>
@@ -1333,71 +1360,45 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"></script>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                let rowCount = 0; // Initialize row counter
+            const roleOptions = {
+                "NPI / Product Engineer": ["NPI Engineer 1", "NPI Engineer 2", "NPI Engineer 3"],
+                "Quality Engineer": ["Quality Engineer 1", "Quality Engineer 2", "Quality Engineer 3"],
+                "Test Engineer": ["Test Engineer 1", "Test Engineer 2", "Test Engineer 3"],
+                "Production": ["Production Lead 1", "Production Lead 2", "Production Lead 3"]
+            };
             
-                // Function to create a new row
-                function createNewRow() {
-                    rowCount++; // Increment row counter
-            
-                    var table = document.getElementById("requireddocTable").getElementsByTagName('tbody')[0];
-            
-                    // Create a new row and the cells
-                    var newRow = table.insertRow();
-            
-                    var statusCell = newRow.insertCell(0);
-                    var documentCell = newRow.insertCell(1);
-                    var attachedFileCell = newRow.insertCell(2);
-                    var remarkCell = newRow.insertCell(3);
-                    var approvalCell = newRow.insertCell(4);
-            
-                    statusCell.classList.add("text-center");
-                    statusCell.innerHTML = `<div id="status_${rowCount}" style="color: red; font-weight: bold;">NG</div>`;
-            
-                    // Create a select dropdown for the Document column with a dynamic name and ID
-                    documentCell.innerHTML = `
-                        <input class="form-control form-control-sm" list="doc_nameListOptions_${rowCount}" type="text" id="doc_name_${rowCount}" name="doc_name_${rowCount}" placeholder="Select Document...">
-                        <datalist id="doc_nameListOptions_${rowCount}">
-                            <option value="Stencil">Stencil</option>
-                            <option value="Forming Fixture (CMC area)">Forming Fixture (CMC area)</option>
-                            <option value="Wave carrier (normal)">Wave carrier (normal)</option>
-                            <option value="Wave carrier (selective)">Wave carrier (selective)</option>
-                            <option value="Top cover for wave carrier">Top cover for wave carrier</option>
-                            <option value="Manual solder fixture">Manual solder fixture</option>
-                            <option value="Press fit nut">Press fit nut</option>
-                            <option value="Assembly fixture">Assembly fixture</option>
-                            <option value="Fixture support for RTV glue">Fixture support for RTV glue</option>
-                            <option value="Simple tooling/equipment">Simple tooling/equipment</option>
-                            <option value="Complex tooling/equipment">Complex tooling/equipment</option>
-                        </datalist>
-                    `;
-            
-                    attachedFileCell.innerHTML = `<input type="file" id="attachedFile_${rowCount}" name="attachedFile_${rowCount}">`;
-                    remarkCell.innerHTML = `<input type="text" class="form-control" id="remark_${rowCount}" name="remark_${rowCount}" placeholder="Enter Remark">`;
-            
-                    approvalCell.classList.add("text-center");
-                    approvalCell.innerHTML = `<button class="btn btn-success mb-0" id="approve_${rowCount}">Submit</button>`;
-                }
-            
-                // Create default row on page load
-                createNewRow();
-            
-                // Handle add row
-                document.getElementById("addRow").addEventListener("click", createNewRow);
-            
-                // Handle delete row
-                document.getElementById("deleterow").addEventListener("click", function () {
-                    var table = document.getElementById("requireddocTable").getElementsByTagName('tbody')[0];
-                    var rowCount = table.rows.length;
-            
-                    if (rowCount > 0) {
-                        table.deleteRow(rowCount - 1);
-                    } else {
-                        alert("No rows to delete!");
-                    }
+            document.addEventListener('DOMContentLoaded', function () {
+                const buttons = document.querySelectorAll('button[data-role]');
+                
+                buttons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const role = this.getAttribute('data-role');
+                        
+                        // Set the modal header to the role
+                        const modalTitle = document.getElementById('responsibleModalLabel');
+                        modalTitle.textContent = `Assign New ${role}`;
+                        
+                        // Get the modal element
+                        const modalElement = document.getElementById('responsibleModal');
+                        
+                        // Update the select options based on the role
+                        const selectInput = document.getElementById('newResponsible');
+                        selectInput.innerHTML = "";  // Clear existing options
+                        
+                        roleOptions[role].forEach(option => {
+                            const optionElement = document.createElement('option');
+                            optionElement.value = option;
+                            optionElement.textContent = option;
+                            selectInput.appendChild(optionElement);
+                        });
+                        
+                        // Show the modal
+                        const modal = new bootstrap.Modal(modalElement);
+                        modal.show();
+                    });
                 });
-            });            
-
+            });
+            
             $(document).ready(function() {
                 $('.js-example-basic-multiple').select2({
                     placeholder: "-- Select relevant persons. --", // Optional placeholder

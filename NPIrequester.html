@@ -255,15 +255,15 @@
                   <div class="card-body border responsive">
                     <div class="card-content">
                       <div class="row top-buffer">
-                        <div class="col-xl-2" align="right"><label class="col-form-label">Project Name:</label></div>
-                        <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="Project" name="Project"placeholder=""></div>
-                        <div class="col-xl-2" align="right"> <label class="col-form-label">Application Name:</label></div>
+                        <div class="col-xl-2" align="right"><label class="col-form-label">SVI Part number:</label></div>
+                        <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="svi_part_number" name="svi_part_number"placeholder=""></div>
+                        <div class="col-xl-2" align="right"><label class="col-form-label">Customer Part number:</label></div>
+                        <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="customer_part_number" name="customer_part_number"placeholder=""></div>
+                        <div class="col-xl-2" align="right"> <label class="col-form-label">Project Application:</label></div>
                         <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="Application"id="Application" placeholder=""></div>
-                        <div class="col-xl-2" align="right"><label class="col-form-label">Description:</label></div>
-                        <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="Description" name="Description"placeholder=""></div>
                       </div>
                       <div class="row top-buffer">
-                        <div class="col-xl-2" align="right"> <label class="col-form-label">Customer BOM Version:</label></div>
+                        <div class="col-xl-2" align="right"> <label class="col-form-label">Customer BOM Revision:</label></div>
                         <div class="col-xl-2"> <input required type="text" class="form-control input-sm" name="BOM" id="BOM" placeholder=""></div>
                         <div class="col-xl-2" align="right"> <label class="col-form-label">NPI Gate:</label></div>
                         <div class="col-xl-2"> 
@@ -274,15 +274,15 @@
                             <option value="Mass">Mass</option>
                           </select>
                         </div>
-                        <!-- <div class="col-xl-2" align="right"> <label class="col-form-label">Build Type:</label></div>
-                        <div class="col-xl-2"> 
+                        <div class="col-xl-2" align="right"> <label class="col-form-label">Build type:</label></div>
+                        <div class="col-xl-2">
                           <select required class="form-control input-sm" name="Build_Type" id="Build_Type">
                             <option value="">Choose...</option>
                             <option value="PCBA">PCBA</option>
                             <option value="Box Build">Box Build</option>
                             <option value="Sparepart">Sparepart</option>
                           </select>
-                        </div> -->
+                        </div>
                       </div>
                       <div class="row">
                         <div class="col-xl-2" align="right"><label class="col-form-label">Quantity Build :</label></div>
@@ -363,8 +363,6 @@
                             <tr>
                               <!-- <th class="text-center" style="width: 35%;">BOX Build Part Number</th> -->
                               <!-- <th class="text-center" style="width: 35%;">PCBA Part Number</th> -->
-                              <th class="text-center" style="width: 15%;">Build Type</th>
-                              <th class="text-center">Part Number</th>
                               <th class="text-center" style="width: 20%;">Kick off date</th>
                               <th class="text-center" style="width: 20%;">Original build date</th>
                               <th class="text-center" style="width: 20%;">Ship date</th>
@@ -374,15 +372,6 @@
                             <tr>
                               <!-- <td class="text-center"><input required name="box" maxlength="30"  type="text"  class="form-control input-sm"></td> -->
                               <!-- <td class="text-center"><input required name="pcbba" maxlength="30"  type="text"  class="form-control input-sm"></td> -->
-                              <td class="text-center">
-                                <select required class="form-control input-sm" name="Build_Type" id="Build_Type">
-                                  <option value="">Choose...</option>
-                                  <option value="PCBA">PCBA</option>
-                                  <option value="Box Build">Box Build</option>
-                                  <option value="Sparepart">Sparepart</option>
-                                </select>
-                              </td>
-                              <td class="text-center"><input required name="part_number" maxlength="30"  type="text"  class="form-control input-sm"></td>
                               <td class="text-center"><input required name="kick_off_date" id="kick_off_date" type="date" class="form-control input-sm"></td>
                               <td class="text-center"><input required name="original_build_date" id="original_build_date" type="date" class="form-control input-sm"></td>
                               <td class="text-center"><input required name="ship_date" id="ship_date" type="date" class="form-control input-sm"></td>
@@ -399,7 +388,7 @@
                         <table id="doc_req" class="table table-striped table-hover table-bordered nowrap w-100">
                           <thead>
                             <tr>
-                              <th class="text-center" style="width: 35%;">Document</th>
+                              <th class="text-center" style="width: 40%;">Document</th>
                               <!-- <th class="text-center" style="width: 10%;">Require</th> -->
                               <th class="text-center" style="width: 10%;">Upload</th>
                               <th class="text-center">Remark</th>
@@ -407,7 +396,7 @@
                           </thead>
                           <tbody>
                             <tr>
-                              <td>Gerber (single)</td>
+                              <td>Gerber (single) <label class="red">*</label></td>
                               <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="gerber1_doc" name="gerber1_doc"></div></td> -->
                               <td><input type="file" id="gerber1_formFile" name="gerber1_formFile"></td>
                               <td><textarea class="form-control input-sm" rows="1" name='gerber1_remark' id="gerber1_remark"></textarea></td>
@@ -419,25 +408,25 @@
                               <td><textarea class="form-control input-sm" rows="1" name='gerber2_remark' id="gerber2_remark"></textarea></td>
                             </tr>
                             <tr>
-                              <td>Document spec (PCB, handling, preparation spec, etc.)</td>
+                              <td>Document spec (PCB, handling, preparation spec, etc.) <label class="red">*</label></td>
                               <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="document_spec_doc" name="document_spec_doc"></div></td> -->
                               <td><input type="file" id="document_spec_formFile"></td>
                               <td><textarea class="form-control input-sm" rows="1" name='document_spec_remark' id="document_spec_remark"></textarea></td>
                             </tr>
                             <tr>
-                              <td>Assembly drawing</td>
+                              <td>Assembly drawing <label class="red">*</label></td>
                               <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="assembly_drawing_doc" name="assembly_drawing_doc"></div></td> -->
                               <td><input type="file" id="assembly_drawing_doc_formFile" name="assembly_drawing_doc_formFile"></td>
                               <td><textarea class="form-control input-sm" rows="1" name='assembly_drawing_doc_remark' id="assembly_drawing_doc_remark"></textarea></td>
                             </tr>
                             <tr>
-                              <td>Customer BOM</td>
+                              <td>Customer BOM <label class="red">*</label></td>
                               <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="customer_bom_doc" name="customer_bom_doc"></div></td> -->
                               <td><input type="file" id="customer_bom_formFile" name="customer_bom_formFile"></td>
                               <td><textarea class="form-control input-sm" rows="1" name='customer_bom_remark' id="customer_bom_remark"></textarea></td>
                             </tr>
                             <tr>
-                              <td>SVI BOM</td>
+                              <td>SVI BOM <label class="red">*</label></td>
                               <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="svi_bom_doc" name="svi_bom_doc"></div></td> -->
                               <td><input type="file" id="svi_bom_formFile" name="svi_bom_formFile"></td>
                               <td><textarea class="form-control input-sm" rows="1" name='svi_bom_remark' id="svi_bom_remark"></textarea></td>
@@ -471,6 +460,12 @@
                               <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="actual_pcb_doc" name="actual_pcb_doc"></div></td> -->
                               <td><input type="file" id="actual_pcb_formFile" name="actual_pcb_formFile"></td>
                               <td><textarea class="form-control input-sm" rows="1" name='actual_pcb_remark' id="actual_pcb_remark"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td>Test Document</td>
+                              <!-- <td class="text-center"><div class="form-check"><input class="form-check-input" type="checkbox" id="actual_pcb_doc" name="actual_pcb_doc"></div></td> -->
+                              <td><input type="file" id="test_doc_formFile" name="test_doc_formFile"></td>
+                              <td><textarea class="form-control input-sm" rows="1" name='test_doc_remark' id="test_doc_remark"></textarea></td>
                             </tr>
                           </tbody>
                         </table>
