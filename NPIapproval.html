@@ -367,6 +367,7 @@
                                                                     <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="UnitPrice" id="UnitPrice" placeholder="-" readonly></div>
                                                                 </div>
                                                             </div>
+                                                            
                                                             <hr>
                                                             <div class="card-content">
                                                                 <div class="col-sm-12 col-xl-12"><label class="col-form-label mb-1">Responsible</label>
@@ -390,6 +391,34 @@
                                                                   </div>
                                                                 </div>
                                                             </div>
+
+                                                            <hr>
+                                                            <div class="card-content">
+                                                                <div class="col-sm-12 col-xl-12"><label class="col-form-label mb-1">Project Detail</label>
+                                                                  <div class="row">
+                                                                    <div class="col">
+                                                                      <label class="col-form-label">Build type:</label>
+                                                                      <input required type="text" class="form-control input-sm" name="build_type" id="build_type" placeholder="" readonly>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                      <label class="col-form-label">Part number:</label>
+                                                                      <input required type="text" class="form-control input-sm" name="part_number" id="part_number" placeholder="" readonly>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                      <label class="col-form-label">Kick off date:</label>
+                                                                      <input required type="text" class="form-control input-sm" name="kick_off_date" id="kick_off_date" placeholder="" readonly>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                      <label class="col-form-label">Original build date:</label>
+                                                                      <input required type="text" class="form-control input-sm" name="original_build_date" id="original_build_date" placeholder="" readonly>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                      <label class="col-form-label">Ship date:</label>
+                                                                      <input required type="text" class="form-control input-sm" name="ship_date" id="ship_date" placeholder="" readonly>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -409,13 +438,6 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="card-body card-dashboard table-responsive" style="padding-top: 0;">
-                                                    <div class="row mb-2">
-                                                        <label for="project_leader" class="form-label">Project Leader : </label>
-                                                        <div class="col-4">
-                                                            <input type="email" class="form-control" id="project_leader">
-                                                        </div>
-                                                        <button class="btn btn-success">Save</button>
-                                                    </div>
                                                     <div class="row">
                                                         <div class="card-body responsive" style="padding: 0;">
                                                             <table id="doc_req" class="table table-striped table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
@@ -533,57 +555,15 @@
                             <section>
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="card-header bg-primary white">
-                                            <h3 class="card-title mb-0">REQUIRED DOCUMENT UPLOAD</h3>
-                                        </div>
-                                        
-                                        <!-- <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title"><i class="fa fa-users"></i> DOCUMENT REQUIRE</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="card-body card-dashboard table-responsive" style="padding-top: 0;">
-                                                    <div class="row">
-                                                        <div class="card-body responsive" style="padding: 0;">
-                                                            <button type="button" id="addRow" class="btn btn-sm btn-primary">
-                                                                <i class="fa fa-plus"></i>
-                                                            </button>
-                                                            <button type="button" id="deleterow" class="btn btn-sm btn-danger">
-                                                                <i class="fa fa-minus"></i>
-                                                            </button>
-                                                            <table id="requireddocTable" class="table table-striped table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th class="text-center" style="width: 10%;">Status</th>
-                                                                        <th class="text-center" style="width: 25%;">Document</th>
-                                                                        <th class="text-center" style="width: 15%;">Attached File</th>
-                                                                        <th class="text-center">Remark</th>
-                                                                        <th class="text-center" style="width: 15%;">Approval</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        
                                         <div class="card">
+                                            <div class="card-header bg-primary white" style="padding-bottom: 22.5px;">
+                                                <h4 class="card-title">REQUIRED DOCUMENT UPLOAD</h4>
+                                            </div>
                                             <div class="card-header">
                                                 <h4 class="card-title"><i class="fa fa-users"></i> DOCUMENT REQUIRE</h4>
                                             </div>
                                             <div class="card-body">
                                                 <div class="card-body card-dashboard table-responsive" style="padding-top: 0;">
-                                                    <!-- <div class="row mb-2">
-                                                        <label for="project_leader" class="form-label">Project Leader : </label>
-                                                        <div class="col-4">
-                                                            <input type="email" class="form-control" id="project_leader">
-                                                        </div>
-                                                        <button class="btn btn-success">Save</button>
-                                                    </div> -->
                                                     <div class="row">
                                                         <div class="card-body responsive" style="padding: 0;">
                                                             <table id="doc_req" class="table table-striped table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
@@ -654,7 +634,7 @@
                                             </div>
                                             <hr>
                                             <div class="card-header d-flex justify-content-between align-items-center">
-                                                <h4 class="card-title"><i class="fa fa-users"></i> DOCUMENT REQUIRE</h4>
+                                                <h4 class="card-title"><i class="fa fa-users"></i> TOOLING REQUIREMENT</h4>
                                                 <button type="button" class="btn btn-raised btn-primary" data-toggle="modal" data-target="#tooling_updatemodal">
                                                     <i class="fa fa-plus"></i> Add Document
                                                 </button>
@@ -703,14 +683,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </section>
-
-                            <!-- Report Require -->
-                            <section>
-                                <div class="row">
-                                    <div class="col-12">
+                                        <!-- Report Require -->
                                         <div class="card">
                                             <div class="card-header">
                                                 <h4 class="card-title"><i class="fa fa-file-text"></i> REPORT REQUIRE</h4>
@@ -779,14 +752,15 @@
                                 </div>
                             </section>
 
-                            <!-- Progression Date -->
+                            <!-- Progression -->
                             <section>
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="card-header bg-primary white">
-                                            <h3 class="card-title mb-0">PROGRESSION</h3>
-                                        </div>
                                         <div class="card">
+                                            <div class="card-header bg-primary white" style="padding-bottom: 22.5px;">
+                                                <h4 class="card-title">PROGRESSION</h4>
+                                            </div>
+                                            <!-- Commitment date -->
                                             <div class="card-header mb-0">
                                                 <h4 class="card-title"><i class="fa fa-calendar-day"></i> COMMITMENT DATE</h4>
                                             </div>
@@ -816,12 +790,6 @@
                                                                         <td class="text-center"><input required name="original_build_date_actual" id="original_build_date_actual" type="date" class="form-control input-sm"></td>
                                                                         <td class="text-center"><input required name="ship_date_actual" id="ship_date_actual" type="date" class="form-control input-sm"></td>
                                                                     </tr>
-                                                                    <!-- <tr>
-                                                                        <th class="text-center">Plan</th>
-                                                                        <td class="text-center"><a class="text-primary" id="kick_off_date_plan" name="kick_off_date_plan">20/08/2024</a></td>
-                                                                        <td class="text-center"><a class="text-danger" id="original_build_date_plan" name="original_build_date_plan">15/10/2024</a></td>
-                                                                        <td class="text-center"><a class="text-success" id="ship_date_plan" name="ship_date_plan">22/10/2024</a></td>
-                                                                    </tr> -->
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -842,7 +810,7 @@
                                                 <button type="button" class="btn btn-success mb-0">Submit</button>
                                             </div>
                                         </div>
-                                        
+                                        <!-- Issue update -->
                                         <div class="card">
                                             <div class="card-header mb-0">
                                                 <h4 class="card-title"><i class="fa fa-calendar-day"></i> ISSUE UPDATE</h4>
@@ -890,14 +858,7 @@
                                                 <button type="button" class="btn btn-success mb-0">Submit</button>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </section>
-
-                            <!-- Follow up -->
-                            <section>
-                                <div class="row">
-                                    <div class="col-12">
+                                        <!-- Follow up -->
                                         <div class="card">
                                             <div class="card-header d-flex justify-content-between align-items-center">
                                                 <h4 class="card-title"><i class="fa fa-clipboard-check"></i> FOLLOW UP</h4>
