@@ -488,12 +488,12 @@
                                                                         <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#approval_modal">Approval</button></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="text-center" style="color: orange;">Pending</td>
+                                                                        <td class="text-center" style="color: red;">NG</td>
                                                                         <td class="text-center">SVI BOM</td>
-                                                                        <td class="text-center"><a href="../file/example.pdf" target="_blank" id="process_flow_formFile" name="process_flow_formFile">Open file</a></td>
+                                                                        <td class="text-center"><a href="../file/example.pdf" target="_blank" id="process_flow_formFile" name="process_flow_formFile">No file</a></td>
                                                                         <td class="text-center">-</td>
                                                                         <td class="text-center">-</td>
-                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#approval_modal">Approval</button></td>
+                                                                        <td class="text-center"><button class="btn btn-danger white mb-0" data-toggle="modal" data-target="#upload_new_modal">Upload new</button></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="text-center" style="color: gray;">Not required</td>
@@ -649,10 +649,11 @@
                                                                         <th class="text-center" style="width: 15%;">Approval</th>
                                                                     </tr>
                                                                 </thead>
-                                                                <tbody>
-                                                                    <!-- <tr>
-                                                                        <td class="text-center" colspan="5">No data available in table</td>
-                                                                    </tr> -->
+                                                                <!-- <tbody>
+                                                                    <tr>
+                                                                        <td class="text-center" colspan="6">No data available in table</td>
+                                                                    </tr>
+                                                                </tbody> -->
                                                                 <tbody>
                                                                     <tr>
                                                                         <td class="text-center" style="color: green; font-weight: bold;">OK</td>
@@ -670,7 +671,6 @@
                                                                         <td class="text-center">Waiting customer talk</td>
                                                                         <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_doc_Modal">Update</button></td>
                                                                     </tr>
-                                                                </tbody>
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -1016,6 +1016,34 @@
         </div>
 
         <!-- Add new document modal -->
+        <div class="modal fade" id="upload_new_modal" tabindex="-1" aria-labelledby="upload_new_modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="add_doc_ModalLabel">UPLOAD NEW DOCUMENT FOR APPROVE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="tooling_formFile">Attached File :</label>
+                            <input type="file" name="tooling_formFile" id="tooling_formFile">
+                        </div>
+                        <div class="form-group">
+                            <label for="box_build_remark">Remark :</label>
+                            <textarea class="form-control input-sm" name="box_build_remark" id="box_build_remark" rows="3"></textarea>
+                        </div>
+                    </div>                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add new document modal -->
         <div class="modal fade" id="tooling_updatemodal" tabindex="-1" aria-labelledby="tooling_updatemodalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -1258,6 +1286,7 @@
                                     <option value="Test">Test Engineer</option>
                                     <option value="Quality">Quality Engineer</option>
                                     <option value="Closed">Closed Ticket</option>
+                                    <option value="Cancel/Reject">Cancel/Reject</option>
                                 </select>
                             </div>
                         </div> 
