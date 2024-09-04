@@ -150,6 +150,18 @@
                             <div class="px-3">
                               <div class="form-body">
                                 <div class="row">
+                                  <div class="col-xl-2 col-lg-2 col-md-12 mb-1">
+                                    <fieldset class="form-group">
+                                      <label for="customer">Customer:</label>
+                                        <input type="text" class="form-control" maxlength="3" id="customer" name="customer" required="">
+                                    </fieldset>
+                                  </div>
+                                  <div class="col-lg-4 mb-1">
+                                    <fieldset class="form-group">
+                                      <label for="project_no">Project no.:</label>
+                                        <input type="text" class="form-control" maxlength="100" id="project_no" name="project_no" required="">
+                                    </fieldset>
+                                  </div>
                                   <div class="col-lg-4 mb-1">
                                     <fieldset class="form-group">
                                       <label for="project_name">Project name:</label>
@@ -162,19 +174,22 @@
                                         <input type="text" class="form-control" maxlength="10" id="tel" name="tel" required="">
                                     </fieldset>
                                   </div>
-                                  <div class="col-lg-3 mb-1">
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-lg-6 mb-1">
                                     <fieldset class="form-group">
                                       <label for="reason">Reason:</label>
                                       <select class="form-control" id="reason" name="reason" required="">
                                         <option value="">------ Select Reason ------</option>
-                                        <option value="Reason 1">Reason 1 (lead time 7 days)</option>
-                                        <option value="Reason 2">Reason 2 (lead time 14 days)</option>
-                                        <option value="Reason 3">Reason 3 (lead time 21 days)</option>
-                                        <option value="Reason 4">Reason 4 (lead time 28 days)</option>
+                                        <option value="7">Reason 1 (lead time 7 days)</option>
+                                        <option value="14">Reason 2 (lead time 14 days)</option>
+                                        <option value="21">Reason 3 (lead time 21 days)</option>
+                                        <option value="28">Reason 4 (lead time 28 days)</option>
                                       </select>
                                     </fieldset>
                                   </div>
-                                  <div class="col-lg-3 mb-1">
+                                  <div class="col-lg-6 mb-1">
                                     <fieldset class="form-group">
                                       <label for="rootcause">Root Cause :</label>
                                       <input type="text" class="form-control" id="rootcause" name="rootcause" required="">
@@ -213,8 +228,8 @@
                                 <div class="row">
                                   <div class="col-lg-12 mb-1">
                                     <fieldset class="form-group">
-                                      <label for="helpInputTop">Description of Change:</label>
-                                      <textarea class="form-control" id="descTextarea" rows="3" min="80px;" placeholder="Enter description of change" name="description" maxlength="900"></textarea>
+                                      <label for="helpInputTop">Description for Change:</label>
+                                      <textarea class="form-control" id="descTextarea" rows="3" min="80px;" placeholder="Enter description for change" name="description" maxlength="900"></textarea>
                                     </fieldset>
                                   </div>
                                 </div>
@@ -279,9 +294,9 @@
                                   </div>
                                   <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
                                     <div class="form-group">
-                                      <label>Due date: </label>
+                                      <label id="due_date_label">Due date: </label>
                                       <div class="input-group">
-                                        <input type="date" class="form-control pickadate-selectors picker__input" name="due_date">
+                                        <input type="date" class="form-control pickadate-selectors picker__input" name="due_date" readonly>
                                       </div>
                                     </div>
                                   </div>
@@ -400,6 +415,26 @@
         });
       });
 
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const today = new Date().toISOString().split('T')[0];
+        const dueDateInput = document.querySelector('input[name="due_date"]');
+        dueDateInput.value = today;
+    
+        document.getElementById('reason').addEventListener('change', function() {
+          const leadTime = parseInt(this.value, 10);
+          if (!isNaN(leadTime)) {
+            const newDueDate = new Date();
+            newDueDate.setDate(newDueDate.getDate() + leadTime);
+            dueDateInput.value = newDueDate.toISOString().split('T')[0];
+    
+            document.getElementById('due_date_label').textContent = `Due date (lead time ${leadTime} days):`;
+          } else {
+            dueDateInput.value = today;
+            document.getElementById('due_date_label').textContent = 'Due date:';
+          }
+        });
+      });
+
       var table = $('#taTable').DataTable({
         "paging": false,
         "ordering": false,
@@ -410,18 +445,18 @@
       var counter = 1;
       
       $('#addRow').on('click', function () {
-          table.row.add([
-            '<input required name="workorder[]" maxlength="30" type="text" class="form-control input-sm">',
-            '<input required name="qty[]" type="number" min="0" step="1" class="form-control input-sm">'
-          ]).draw(false);
-          counter++;
+        table.row.add([
+          '<input required name="workorder[]" maxlength="30" type="text" class="form-control input-sm">',
+          '<input required name="qty[]" type="number" min="0" step="1" class="form-control input-sm">'
+        ]).draw(false);
+        counter++;
       });
       
       $('#deleterow').on('click', function () {
-          if (counter > 1) {  // Ensure there's at least one row remaining
-              table.row(counter - 1).remove().draw(false);
-              counter--;
-          }
+        if (counter > 1) { 
+          table.row(counter - 1).remove().draw(false);
+          counter--;
+        }
       });
     </script>
   </body>
