@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+  <!-- BEGIN : Head-->
+  <head>
+    <title>E Ticket : NPI Request</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="MIS Request">
+    <meta name="author" content="Forderson">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="shortcut icon" href="../img/logo_ticket.ico">
+    <link rel="stylesheet" type="text/css" href="../css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/perfect-scrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/prism.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <style>
+      .container {
+        /* background-color: #111; */
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+      }
+  
+      .file-upload__label {
+        background-color:rgba(162, 224, 213, 0.9);
+        border-radius: 10px;
+        color: #000;
+        font-size: 16px;
+        /* left: 50%; */
+        padding: 5px 10px;
+        cursor: pointer;
+        outline: none;
+        /* padding: 15px; */
+        pointer-events: none;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-user-select: none;
+        white-space: nowrap;
+        width: 90%;
+      }
+  
+      .file-upload__input {
+        bottom: 0;
+        color: transparent;
+        cursor: pointer;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+      }
+    </style>
+
+  </head>
+  <body data-col="2-columns" class=" 2-columns ">
+    <div id="cover-spin"></div>
+      <div class="wrapper nav-collapsed menu-collapsed">
+        <div data-active-color="white" data-background-color="info" data-image="../img/06.jpg" class="app-sidebar">
+          <div class="sidebar-header">
+            <div class="logo clearfix"><a href="/home" class="logo-text float-left">
+              <span class="text align-middle"><img src="../img/logo.png"/></span></a>
+            </div>
+          </div>
+          <div class="sidebar-content ">
+            <div class="nav-container">
+              <ul id="main-menu-navigation" data-menu="menu-navigation" data-scroll-to-active="true" class="navigation navigation-main">
+                <li class=" nav-item">
+                  <a href="#">
+                    <i class="fas fa-home"></i>
+                    <span data-i18n="" class="menu-title">Home </span>
+                  </a>
+                </li>
+                <li class=" nav-item">
+                  <a href="index.html">
+                    <i class="fas fa-file-text"></i>
+                    <span data-i18n="" class="menu-title">Request List</span>
+                  </a>
+                </li>
+                <li class=" nav-item">
+                  <a href="index.html">
+                    <i class="fa fa-inbox" aria-hidden="true"></i>
+                    <span data-i18n="" class="menu-title">All Request List</span>
+                  </a>
+                </li>
+                <li class=" nav-item">
+                  <a href="NPIdashboard.html">
+                      <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                      <span data-i18n="" class="menu-title">Dashboard</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sidebar-background">
+          </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light header-navbar toggle fixed-top gradient-back-to-earth" style="padding-top: 0px;padding-bottom: 0px;">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" data-toggle="collapse" class="navbar-toggle d-lg-none float-left">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <span class="d-lg-none navbar-right navbar-collapse-toggle">
+                <a aria-controls="navbarSupportedContent" href="javascript:;" class="open-navbar-container black">
+                  <i class="ft-more-vertical"></i>
+                </a>
+              </span>
+            </div>
+            <div class="navbar-container">
+              <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                  <li class="dropdown nav-item">
+                    <a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle">
+                      <i class="fas fa-user"></i>
+                      <b>Kittipong Chankhotr</b>  
+                    </a>
+                    <div ngbdropdownmenu="" aria-labelledby="dropdownBasic3" class="dropdown-menu text-left dropdown-menu-right">
+                      <a href="/logout" class="dropdown-item">
+                        <i class="fas fa-power-off mr-2"></i>
+                        <span>Logout</span>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="main-panel">
+          <div class="main-content">
+            <div class="content-wrapper" style="margin-top: 70px">
+              <form action="/save_request/" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="csrfmiddlewaretoken" value="Zqny7uRHRDMtjFnlcq3AUpKFlgB3z4Y7rFrcRbHTtH5Jzfr29gdCkjovLmDC68Bg">
+                <section class="basic-elements">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title">Create Request</h4>
+                        </div>
+                        <div class="card-body">
+                          <div class="card-content">
+                            <div class="px-3">
+                                <div class="form-body">
+                                  <div class="row">
+                                    <div class="col-lg-6 mb-1">
+                                      <fieldset class="form-group">
+                                        <label for="project_name">Project name:</label>
+                                          <input type="text" class="form-control" maxlength="100" id="project_name" name="project_name" required="">
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-2 col-md-12 mb-10">
+                                      <fieldset class="form-group">
+                                        <label for="tel">Tel.:</label>
+                                          <input type="text" class="form-control" maxlength="10" id="tel" name="tel" required="">
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 mb-1">
+                                      <fieldset class="form-group">
+                                        <label for="workorder">Work Order:</label>
+                                        <select class="form-control" id="workorder" name="workorder" required="">
+                                          <option value="">------ Select Work Order ------</option>
+                                          <option value="00000001">00000001</option>
+                                          <option value="00000002">00000002</option>
+                                          <option value="00000003">00000003</option>
+                                          <option value="00000004">00000004</option>
+                                        </select>
+                                      </fieldset>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-lg-6 mb-1">
+                                      <fieldset class="form-group">
+                                        <label for="reason">Reason:</label>
+                                        <select class="form-control" id="reason" name="reason" required="">
+                                          <option value="">------ Select Reason ------</option>
+                                          <option value="Reason 1">Reason 1 (lead time 7 days)</option>
+                                          <option value="Reason 2">Reason 2 (lead time 14 days)</option>
+                                          <option value="Reason 3">Reason 3 (lead time 21 days)</option>
+                                          <option value="Reason 4">Reason 4 (lead time 28 days)</option>
+                                        </select>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-lg-6 mb-1">
+                                      <fieldset class="form-group">
+                                        <label for="rootcause">Root Cause :</label>
+                                        <input type="text" class="form-control" id="rootcause" name="rootcause" required="">
+                                      </fieldset>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-lg-12 mb-1">
+                                      <fieldset class="form-group">
+                                        <label for="helpInputTop">Description of Change:</label>
+                                        <textarea class="form-control" id="descTextarea" rows="3" min="80px;" placeholder="Enter description of change" name="description" maxlength="900"></textarea>
+                                      </fieldset>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 mb-10">
+                                      <fieldset class="form-group">
+                                        <label for="approver">Approver : </label>
+                                        <select class="js-example-basic-single form-control select2-hidden-accessible" name="approver" id="approver" required="" data-select2-id="approver" tabindex="-1" aria-hidden="true">
+                                          <option value="" data-select2-id="4"> ------ Select Approver ------ </option>
+                                          <option value="42848">Passakorn Haman</option>
+                                          <option value="22874">Jugtupong Pinnak</option>
+                                          <option value="45446">Han-Chang Lin</option>
+                                          <option value="11202">Chalerm Charttrakull</option>
+                                          <option value="21726">Prabakara Ramiah</option>
+                                          <option value="09710">Ratchanee Amnadworakit</option>
+                                          <option value="40868">Apirak Saengsie</option>
+                                          <option value="11068">Songpon Prasawang</option>
+                                          <option value="13459">Nonthaphan Akrasuwanasri</option>
+                                          <option value="00064">Somporn Khampang</option>
+                                          <option value="46113">Kasob Suphasidh</option>
+                                          <option value="00083">Montree Disayavipas</option>
+                                          <option value="46007">Pornchai Wongsa</option>
+                                          <option value="35559">Kodchaphan Petchoo</option>
+                                          <option value="10197">Tawatchai Pho-Thong</option>
+                                          <option value="KH70001">Rueankaew Bundit</option>
+                                          <option value="44900">Sakda Jaithum</option>
+                                          <option value="46699">Jalaj Kumar Saxena</option>
+                                          <option value="19299">Kanusit Boonrukvanit</option>
+                                          <option value="04952">Apinya Puangpae</option>
+                                          <option value="15184">Pornpichit Thungnoi</option>
+                                          <option value="47946">Topong Sukhumsawad</option>
+                                          <option value="11505">Phiphatpol Pawinjiraseth</option>
+                                          <option value="24450">Melada Boontawee</option>
+                                          <option value="48124">Chookiat Jiraratmetagon</option>
+                                          <option value="48387">Nonglux Kulprasit</option>
+                                          <option value="48195">Claus Broberg</option>
+                                          <option value="48324">Wanvipha Chumsawat</option>
+                                          <option value="40584">Sawan Rotjanasutjathum</option>
+                                          <option value="45352">Salisa Phuakneam</option>
+                                          <option value="49052">Achita Wongkaew</option>
+                                          <option value="49360">Siriporn Prayoke</option>
+                                          <option value="50730">Kanvarah Nuanpen</option>
+                                          <option value="50658">Issara Kijpalapibool</option>
+                                          <option value="51156">Tsung Ta Tsai</option>
+                                          <option value="99998">Thaphop Spl</option>
+                                          <option value="51451">Patrick Loughran Macdonald</option>
+                                          <option value="44486">Kris Leetavorn</option>
+                                          <option value="51589">Alex Bergamaschine</option>
+                                          <option value="KH51856">Hongquan Xu</option>
+                                          <option value="51897">Haijun Lang</option>
+                                          <option value="49361">Sangthen Chirdchid</option>
+                                          <option value="93030">Panida Siripongsanon</option>
+                                          <option value="92959">Thaphop Kleesuwan</option>
+                                          <option value="52980">Sudha Ashwini Janabalan</option>
+                                          <option value="HK0003">Alasdair Waugh</option>
+                                          <option value="53958">Rashmi Karingat</option>
+                                          <option value="53830">Bhargobi Gogoi</option>
+                                        </select>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                      <div class="form-group">
+                                        <label>Due date: </label>
+                                        <div class="input-group">
+                                          <input type="date" class="form-control pickadate-selectors picker__input" name="due_date">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+              
+                                  <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 mb-10">
+                                      <fieldset class="form-group">
+                                        <label for="selectassign_to">Assign to:</label>
+                                        <select class="js-example-basic-single form-control select2-hidden-accessible" name="assign" id="selectassign_to" required="" data-select2-id="selectassign_to" tabindex="-1" aria-hidden="true">
+                                          <option value="" data-select2-id="4"> ------ Select Assignee ------ </option>
+                                          <option value="53951">Amitita Palacheewa</option>
+                                          <option value="36593">Anan Jaipradub</option>
+                                          <option value="10380">Annop Chuntong</option>
+                                          <option value="48950">Anukul Duangphol</option>
+                                          <option value="53703">Areeya Samphao</option>
+                                          <option value="53037">Aukrit Jitsangawong</option>
+                                          <option value="52981">Ezra Kongsuwan</option>
+                                          <option value="51459">Jirawan Rod-in</option>
+                                          <option value="51566">Jitpat Jitturongarporn</option>
+                                          <option value="22874">Jugtupong Pinnak</option>
+                                          <option value="10421">Jutamas Kumbumrung</option>
+                                          <option value="51815">Kanokporn Dueansaenphut</option>
+                                          <option value="50730">Kanvarah Nuanpen</option>
+                                          <option value="45387">Kitanan Siriwattana</option>
+                                          <option value="48576">Kittakarn Seeto</option>
+                                          <option value="49398">Natipong Buata</option>
+                                          <option value="52591">Natnarin Singhanai</option>
+                                          <option value="47812">Panithan Seeson</option>
+                                          <option value="42848">Passakorn Haman</option>
+                                          <option value="53889">Phanudet Konkaew</option>
+                                          <option value="52836">Phuripat Yangngam</option>
+                                          <option value="47810">Pongsapak Inprasit</option>
+                                          <option value="50916">Prayot Vongtarua</option>
+                                          <option value="52739">Rungruj Titachotnimit</option>
+                                          <option value="52898">Sachin Rudrawar</option>
+                                          <option value="52578">Sanyapong Youkachen</option>
+                                          <option value="52948">Siravich Umpornsrisupap</option>
+                                          <option value="52765">Sirilack Sirisopon</option>
+                                          <option value="50848">Sittipol Owcharoen</option>
+                                          <option value="93061">Smit Qiao</option>
+                                          <option value="53191">Sudarat Rungsawang</option>
+                                          <option value="45401">Sujaray Sayan</option>
+                                          <option value="47813">Sukapoj Hirul</option>
+                                          <option value="21375">Suriya Chuayjit</option>
+                                          <option value="93046">Tanakit Wonglakorn</option>
+                                          <option value="52760">Tanapat Kaewveingchai</option>
+                                          <option value="50932">Tanapum Nilkamhaeng</option>
+                                          <option value="51592">Tanased Wanichkamonnull</option>
+                                          <option value="47946">Topong Sukhumsawad</option>
+                                          <option value="93067">Vayu Thongnirundorn</option>
+                                          <option value="52740">Vorapol Chavalitjamlert</option>
+                                          <option value="27962">Wasan Songdoungthum</option>
+                                          <option value="KH50004">Chhon Bunchhen</option>
+                                          <option value="KH51004">Tin  Pisith</option>
+                                          <option value="40868">Apirak Saengsie</option>
+                                          <option value="G0001">Basis Team</option>
+                                        </select>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                      <label for="file">Attach file:</label>
+                                      <div class="container">
+                                        <div class="file-upload">
+                                          <label class="file-upload__label">Select or drop files here</label>
+                                          <input class="file-upload__input" id="inputGroupFile01" multiple="" type="file" name="file">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="row mt-3">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                      <div>
+                                        <a href="index.html" class="btn btn-raised btn-warning mr-1"> <i class="fa fa-arrow-left"></i> Back</a>
+                                      </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                      <div class="text-right">
+                                        <button type="submit" class="btn btn-raised btn-primary"><i class="fa fa-save"></i> Submit </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="../js/popper.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="../js/prism.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.matchHeight-min.js" type="text/javascript"></script>
+    <script src="../js/screenfull.min.js" type="text/javascript"></script>
+    <script src="../js/pace.min.js" type="text/javascript"></script>
+    <script src="../js/app-sidebar.js" type="text/javascript"></script>
+    <script src="../js/notification-sidebar.js" type="text/javascript"></script>
+    <script src="../js/customizer.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/datatables.min.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const today = new Date().toISOString().split('T')[0];
+        document.querySelectorAll('input[type="date"]').forEach(input => {
+            input.value = today;
+        });
+      });
+    </script>
+  </body>
+</html>
