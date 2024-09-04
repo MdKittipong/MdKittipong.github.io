@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+  <!-- BEGIN : Head-->
+    <head>
+        <title>E Ticket : NPI Document Approval</title> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta name="description" content="MIS Request">
+        <meta name="author" content="Forderson">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <link rel="shortcut icon" href="../img/logo_ticket.ico">
+
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="../css/style.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/perfect-scrollbar.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/prism.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/app.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+        <style>
+            .input-sm {
+                height: 30px;
+                padding: 5px 10px;
+                font-size: 12px;
+                line-height: 1.5;
+                border-radius: 3px;
+            }
+
+            .col-form-label {
+                color: black;
+                font-size: 12px;
+            }
+
+            .top-buffer {
+                margin-top: 10px;
+            }
+
+            .top-buffer2 {
+                margin-top: 20px;
+            }
+
+            .top-buffer3 {
+                margin-top: 5px;
+            }
+
+            .top-buffer4 {
+                margin-top: 15px;
+            }
+
+            .file-upload__label {
+                background-color: rgba(39, 158, 238, 0.9);
+                border-radius: 10px;
+                color: #000;
+                font-size: 16px;
+            
+                padding: 7.5px 10px;
+                cursor: pointer;
+                outline: none;
+            
+                pointer-events: none;
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                -moz-transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                -webkit-user-select: none;
+                white-space: nowrap;
+                width: 100%;
+            }
+
+            .file-upload__input {
+                bottom: 0;
+                color: transparent;
+                cursor: pointer;
+                height: 100%;
+                left: 0;
+                opacity: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 100%;
+            }
+
+            .disabled{
+                cursor: not-allowed;
+                opacity: 0.6; 
+                pointer-events: none;
+            }
+
+            .select2-container--default .select2-selection--multiple .select2-selection__choice__display{
+                padding-left: 22px !important;
+            }
+
+            .select2-container .select2-selection--multiple{
+                min-height: 36px !important;
+                border-color: lightgray !important;
+            }
+
+            .select2-container--default .select2-search--inline .select2-search__field{
+                font-size: 14px !important;
+                padding-left: 10px !important;
+                padding-top: 8px !important;
+            }
+
+            .custom-radio {
+                appearance: none; /* Remove default styling */
+                width: 20px;
+                height: 20px;
+                border: 2px solid #00a07b; /* Border color */
+                border-radius: 50%; /* Make it circular */
+                position: relative;
+                cursor: pointer; /* Cursor pointer on hover */
+                margin-right: 8px; /* Space between radio and label */
+            }
+
+            .custom-radio:checked::before {
+                content: "";
+                display: block;
+                width: 9px;
+                height: 9px;
+                background-color: #00a07b; /* Checked color */
+                border-radius: 50%;
+                position: absolute;
+                top: 6.5px;
+                left: 5.5px;
+            }
+
+            .custom-label {
+                font-size: 14px; /* Increase label size */
+                color: #00a07b; /* Label color */
+                margin-left: 3px;
+                cursor: pointer; /* Cursor pointer on hover */
+            }
+
+            .custom-radio-2 {
+                appearance: none; /* Remove default styling */
+                width: 20px;
+                height: 20px;
+                border: 2px solid #a52208; /* Border color */
+                border-radius: 50%; /* Make it circular */
+                position: relative;
+                cursor: pointer; /* Cursor pointer on hover */
+                margin-right: 8px; /* Space between radio and label */
+            }
+
+            .custom-radio-2:checked::before {
+                content: "";
+                display: block;
+                width: 9px;
+                height: 9px;
+                background-color: #a52208; /* Checked color */
+                border-radius: 50%;
+                position: absolute;
+                top: 6.5px;
+                left: 5.5px;
+            }
+
+            .custom-label-2 {
+                font-size: 14px; /* Increase label size */
+                color: #a52208; /* Label color */
+                margin-left: 3px;
+                cursor: pointer; /* Cursor pointer on hover */
+            }
+
+            .custom-radio-3 {
+                appearance: none; /* Remove default styling */
+                width: 20px;
+                height: 20px;
+                border: 2px solid gray; /* Border color */
+                border-radius: 50%; /* Make it circular */
+                position: relative;
+                cursor: pointer; /* Cursor pointer on hover */
+                margin-right: 8px; /* Space between radio and label */
+            }
+
+            .custom-radio-3:checked::before {
+                content: "";
+                display: block;
+                width: 9px;
+                height: 9px;
+                background-color: gray; /* Checked color */
+                border-radius: 50%;
+                position: absolute;
+                top: 6.5px;
+                left: 5.5px;
+            }
+
+            .custom-label-3 {
+                font-size: 14px; /* Increase label size */
+                color: gray; /* Label color */
+                margin-left: 3px;
+                cursor: pointer; /* Cursor pointer on hover */
+            }
+
+            input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"]{
+                text-align: center;
+            }
+        </style>
+
+    </head>
+    <body data-col="2-columns" class=" 2-columns ">
+        <div id="cover-spin"></div>
+            <div class="wrapper nav-collapsed menu-collapsed">
+                <div data-active-color="white" data-background-color="info" data-image="../img/06.jpg" class="app-sidebar">
+                    <div class="sidebar-header">
+                        <div class="logo clearfix"><a href="/home" class="logo-text float-left">
+                        <span class="text align-middle"><img src="../img/logo.png"/></span></a>
+                    </div>
+                </div>
+                <div class="sidebar-content ">
+                    <div class="nav-container">
+                        <ul id="main-menu-navigation" data-menu="menu-navigation" data-scroll-to-active="true" class="navigation navigation-main">
+                            <li class=" nav-item">
+                                <a href="#">
+                                    <i class="fas fa-home"></i>
+                                    <span data-i18n="" class="menu-title">Home </span>
+                                </a>
+                            </li>
+                            <li class=" nav-item">
+                                <a href="index.html">
+                                    <i class="fas fa-file-text"></i>
+                                    <span data-i18n="" class="menu-title">Request List</span>
+                                </a>
+                            </li>
+                            <li class=" nav-item">
+                                <a href="index.html">
+                                    <i class="fa fa-inbox" aria-hidden="true"></i>
+                                    <span data-i18n="" class="menu-title">All Request List</span>
+                                </a>
+                            </li>
+                            <li class=" nav-item">
+                                <a href="NPIdashboard.html">
+                                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                    <span data-i18n="" class="menu-title">Dashboard</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sidebar-background">
+                </div>
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light header-navbar toggle fixed-top gradient-back-to-earth" style="padding-top: 0px;padding-bottom: 0px;">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" data-toggle="collapse" class="navbar-toggle d-lg-none float-left">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <span class="d-lg-none navbar-right navbar-collapse-toggle">
+                                <a aria-controls="navbarSupportedContent" href="javascript:;" class="open-navbar-container black">
+                                <i class="ft-more-vertical"></i>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="navbar-container">
+                            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="dropdown nav-item">
+                                        <a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle">
+                                        <i class="fas fa-user"></i>
+                                        <b>Kittipong Chankhotr</b>  
+                                        </a>
+                                        <div ngbdropdownmenu="" aria-labelledby="dropdownBasic3" class="dropdown-menu text-left dropdown-menu-right">
+                                            <a href="/logout" class="dropdown-item">
+                                                <i class="fas fa-power-off mr-2"></i>
+                                                <span>Logout</span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="main-panel">
+                    <div class="main-content">
+                        <div class="content-wrapper" style="margin-top: 70px">
+
+                            <!-- Request Detail -->
+                            <section>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header bg-primary white" style="padding-bottom: 22.5px;">
+                                                <h4 class="card-title"><i class="fa fa-globe"></i> REQUEST DETAIL</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-body card-dashboard table-responsive mb-0" style="padding-top: 0;">
+                                                    <div class="row">
+                                                        <div class="card-body border responsive" style="margin-bottom: 0;">
+                                                            <div class="card-content">
+                                                                <div class="row top-buffer">
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">Company:</label></div>
+                                                                    <div class="col-xl-2">
+                                                                        <input type="text" id="CompanyNIP" name="CompanyNIP" class="form-control form-control-sm" value="SVI2" readonly>
+                                                                    </div>
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">BU:</label></div>
+                                                                        <div class="col-xl-2">
+                                                                            <input type="text" id="BU" name="BU" class="form-control form-control-sm" value="BU1" readonly>
+                                                                        </div>
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">CFT:</label></div>
+                                                                    <div class="col-xl-2">
+                                                                        <input type="text" id="CFT" name="CFT" class="form-control form-control-sm" value="FCT1" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row top-buffer2">
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">Request Type:</label></div>
+                                                                    <div class="col-xl-2">
+                                                                        <input type="text" id="RequestType" name="RequestType" class="form-control form-control-sm" value="Engineering" readonly>
+                                                                    </div>
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">Project Type:</label></div>
+                                                                    <div class="col-xl-2">
+                                                                        <input type="text" id="ProjectType" name="ProjectType" class="form-control form-control-sm" value="NPI Project" readonly>
+                                                                    </div>
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">Customer Name:</label></div>
+                                                                    <div class="col-xl-2">
+                                                                        <input type="text" id="CustomerName" name="CustomerName" class="form-control form-control-sm" value="LGP" readonly>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="card-content">
+                                                                <div class="row">
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">SVI Part number:</label></div>
+                                                                    <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="svi_part_number" name="svi_part_number" placeholder="" value="LGP908-222727LF" readonly></div>
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">Customer Part number:</label></div>
+                                                                    <div class="col-xl-2"> <input required type="text" class="form-control input-sm" id="customer_part_number" name="customer_part_number"placeholder="" readonly></div>
+                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">Project Application:</label></div>
+                                                                    <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="Application"id="Application" placeholder="" readonly></div>
+                                                                </div>
+                                                                <div class="row top-buffer3">
+                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">Customer BOM Revision:</label></div>
+                                                                    <div class="col-xl-2"> <input required type="text" class="form-control input-sm" name="BOM" id="BOM" placeholder="" readonly></div>
+                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">NPI Gate:</label></div>
+                                                                    <div class="col-xl-2"> <input required type="text" class="form-control input-sm" name="NPI_Gate" id="NPI_Gate" placeholder="" readonly></div>
+                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">Build type:</label></div>
+                                                                    <div class="col-xl-2"> <input required type="text" class="form-control input-sm" name="Build_Type" id="Build_Type" placeholder="" readonly></div>
+                                                                </div>
+                                                                <div class="row top-buffer3">
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">Quantity Build :</label></div>
+                                                                    <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="Quantity" id="Quantity" placeholder="" readonly></div>
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">TAM(USD) :</label></div>
+                                                                    <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="TAM" id="TAM" placeholder="" readonly></div>
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label">Customer Grade:</label></div>
+                                                                    <div class="col-xl-2"><input required type="text" maxlength="15" class="form-control input-sm" name="Grade" id="Grade" placeholder="" readonly></div>
+                                                                </div>
+                                                                <div class="row top-buffer2">
+                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label" id="PAR">Potential Annual Revenue (USD):</label></div>
+                                                                    <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="PARUSD" id="PARUSD" placeholder="" readonly></div>
+                                                                    <div class="col-xl-2" align="right"><label class="col-form-label" id="EAU">Estimate Annual Usage (Qty.):</label></div>
+                                                                    <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="EAUQTY" id="EAUQTY" placeholder="" readonly></div>
+                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">Unit Price(USD):</label></div>
+                                                                    <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="UnitPrice" id="UnitPrice" placeholder="" readonly></div>
+                                                                </div>
+                                                                <div class="row top-buffer ">
+                                                                    <div class="col-xl-2" align="right"> <label class="col-form-label">Project reference:</label></div>
+                                                                    <div class="col-xl-2"><input required type="text" class="form-control input-sm" name="UnitPrice" id="UnitPrice" placeholder="-" readonly></div>
+                                                                </div>
+                                                            </div>
+
+                                                            <hr>
+                                                            <div class="card-content">
+                                                                <div class="col-sm-12 col-xl-12"><label class="col-form-label mb-1">Project Detail</label>
+                                                                  <div class="row">
+                                                                    <div class="col">
+                                                                      <label class="col-form-label">Kick off date:</label>
+                                                                      <input required type="text" class="form-control input-sm" name="kick_off_date" id="kick_off_date" placeholder="" readonly>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                      <label class="col-form-label">Original build date:</label>
+                                                                      <input required type="text" class="form-control input-sm" name="original_build_date" id="original_build_date" placeholder="" readonly>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                      <label class="col-form-label">Ship date:</label>
+                                                                      <input required type="text" class="form-control input-sm" name="ship_date" id="ship_date" placeholder="" readonly>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <hr>
+                                                            <div class="card-content">
+                                                                <div class="col-sm-12 col-xl-12">
+                                                                    <label class="col-form-label mb-1">Responsible</label>
+                                                                    <div class="row">
+                                                                        <div class="col-3">
+                                                                            <label class="col-form-label">NPI / Product Engineer:</label>
+                                                                            <button type="button" class="form-control input-sm btn btn-secondary" id="npi_pe_approver_btn" data-role="NPI / Product Engineer">Montri Phanomnivate</button>
+                                                                        </div>
+                                                                        <div class="col-3">
+                                                                            <label class="col-form-label">Quality Engineer:</label>
+                                                                            <button type="button" class="form-control input-sm btn btn-secondary" id="qe_approver_btn" data-role="Quality Engineer">Yingyos Sookchai</button>
+                                                                        </div>
+                                                                        <div class="col-3">
+                                                                            <label class="col-form-label">Test Engineer:</label>
+                                                                            <button type="button" class="form-control input-sm btn btn-secondary" id="test_engineer_approver_btn" data-role="Test Engineer">Phinyo Wichieanchote</button>
+                                                                        </div>
+                                                                        <div class="col-3">
+                                                                            <label class="col-form-label">Production:</label>
+                                                                            <button type="button" class="form-control input-sm btn btn-secondary" id="production_approver_btn" data-role="Production">Adisak Silapachai</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Document Approval -->
+                            <section>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header bg-primary white" style="padding-bottom: 22.5px;">
+                                                <h4 class="card-title"><i class="fa fa-users"></i> DOCUMENT APPROVAL</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-body card-dashboard table-responsive" style="padding-top: 0;">
+                                                    <div class="row">
+                                                        <div class="card-body responsive" style="padding: 0;">
+                                                            <table id="doc_req" class="table table-striped table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-center" style="width: 10%;">Status</th>
+                                                                        <th class="text-center" style="width: 20%;">Document</th>
+                                                                        <th class="text-center" style="width: 15%;">Attached File</th>
+                                                                        <th class="text-center">Remark</th>
+                                                                        <th class="text-center">Detail</th>
+                                                                        <th class="text-center" style="width: 15%;">Approval</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: orange;">Pending</td>
+                                                                        <td class="text-center">Gerber (single)</td>
+                                                                        <td class="text-center"><a href="../file/example.pdf" target="_blank" id="process_flow_formFile" name="process_flow_formFile">Open file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#approval_modal">Approval</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: orange;">Pending</td>
+                                                                        <td class="text-center">Gerber (panel, PD gerber)</td>
+                                                                        <td class="text-center"><a href="../file/example.pdf" target="_blank" id="process_flow_formFile" name="process_flow_formFile">Open file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#approval_modal">Approval</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: orange;">Pending</td>
+                                                                        <td class="text-center">Document spec (PCB, handling, preparation spec, etc.)</td>
+                                                                        <td class="text-center"><a href="../file/example.pdf" target="_blank" id="process_flow_formFile" name="process_flow_formFile">Open file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#approval_modal">Approval</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: orange;">Pending</td>
+                                                                        <td class="text-center">Assembly drawing</td>
+                                                                        <td class="text-center"><a href="../file/example.pdf" target="_blank" id="process_flow_formFile" name="process_flow_formFile">Open file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#approval_modal">Approval</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: orange;">Pending</td>
+                                                                        <td class="text-center">Customer BOM</td>
+                                                                        <td class="text-center"><a href="../file/example.pdf" target="_blank" id="process_flow_formFile" name="process_flow_formFile">Open file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#approval_modal">Approval</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red;">NG</td>
+                                                                        <td class="text-center">SVI BOM</td>
+                                                                        <td class="text-center"><a href="../file/example.pdf" target="_blank" id="process_flow_formFile" name="process_flow_formFile">No file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-danger white mb-0" data-toggle="modal" data-target="#upload_new_modal">Upload new</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: gray;">Not required</td>
+                                                                        <td class="text-center">Assembly guidline</td>
+                                                                        <td class="text-center disabled"><a href="../file/example.pdf" target="_blank" id="box_build_formFile" style="color: gray;">No file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-secondary mb-0" data-toggle="modal" data-target="#request_modal">Request</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: gray;">Not required</td>
+                                                                        <td class="text-center">Customer 2D, 3D drawing</td>
+                                                                        <td class="text-center disabled"><a href="../file/example.pdf" target="_blank" id="box_build_formFile" style="color: gray;">No file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-secondary mb-0" data-toggle="modal" data-target="#request_modal">Request</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: gray;">Not required</td>
+                                                                        <td class="text-center">Customer golden sample unit</td>
+                                                                        <td class="text-center disabled"><a href="../file/example.pdf" target="_blank" id="box_build_formFile" style="color: gray;">No file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-secondary mb-0" data-toggle="modal" data-target="#request_modal">Request</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: gray;">Not required</td>
+                                                                        <td class="text-center">Actual component</td>
+                                                                        <td class="text-center disabled"><a href="../file/example.pdf" target="_blank" id="box_build_formFile" style="color: gray;">No file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-secondary mb-0" data-toggle="modal" data-target="#request_modal">Request</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: gray;">Not required</td>
+                                                                        <td class="text-center">Actual PCB</td>
+                                                                        <td class="text-center disabled"><a href="../file/example.pdf" target="_blank" id="box_build_formFile" style="color: gray;">No file</a></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-secondary mb-0" data-toggle="modal" data-target="#request_modal">Request</button></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Document Require -->
+                            <section>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header bg-primary white" style="padding-bottom: 22.5px;">
+                                                <h4 class="card-title">REQUIRED DOCUMENT UPLOAD</h4>
+                                            </div>
+                                            <div class="card-header">
+                                                <h4 class="card-title"><i class="fa fa-users"></i> DOCUMENT REQUIREMENT</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-body card-dashboard table-responsive" style="padding-top: 0;">
+                                                    <div class="row">
+                                                        <div class="card-body responsive" style="padding: 0;">
+                                                            <table id="doc_req" class="table table-striped table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-center" style="width: 10%;">Status</th>
+                                                                        <th class="text-center" style="width: 20%;">Document</th>
+                                                                        <th class="text-center" style="width: 15%;">Attached File</th>
+                                                                        <th class="text-center">Remark</th>
+                                                                        <th class="text-center" style="width: 15%;">Approval</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red; font-weight: bold;">NG</td>
+                                                                        <td class="text-center">Process Flow</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_doc_Modal">Update</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red; font-weight: bold;">NG</td>
+                                                                        <td class="text-center">WI PCBA</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_doc_Modal">Update</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red; font-weight: bold;">NG</td>
+                                                                        <td class="text-center">WI Box Build</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_doc_Modal">Update</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red; font-weight: bold;">NG</td>
+                                                                        <td class="text-center">TA</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_doc_Modal">Update</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red; font-weight: bold;">NG</td>
+                                                                        <td class="text-center">DA</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_doc_Modal">Update</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red; font-weight: bold;">NG</td>
+                                                                        <td class="text-center">DFM</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_doc_Modal">Update</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red; font-weight: bold;">NG</td>
+                                                                        <td class="text-center">ECO</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_doc_Modal">Update</button></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="card-header d-flex justify-content-between align-items-center">
+                                                <h4 class="card-title"><i class="fa fa-users"></i> TOOLING REQUIREMENT</h4>
+                                                <button type="button" class="btn btn-raised btn-primary" data-toggle="modal" data-target="#tooling_updatemodal">
+                                                    <i class="fa fa-plus"></i> Add Document
+                                                </button>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-body card-dashboard table-responsive" style="padding-top: 0;">
+                                                    <div class="row">
+                                                        <div class="card-body responsive" style="padding: 0;">
+                                                            <table id="doc_req2" class="table table-striped table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-center" style="width: 10%;">Status</th>
+                                                                        <th class="text-center" style="width: 20%;">Tooling type</th>
+                                                                        <th class="text-center" style="width: 20%;">Document</th>
+                                                                        <th class="text-center" style="width: 15%;">Attached File</th>
+                                                                        <th class="text-center">Remark</th>
+                                                                        <th class="text-center" style="width: 15%;">Approval</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <!-- <tbody>
+                                                                    <tr>
+                                                                        <td class="text-center" colspan="6">No data available in table</td>
+                                                                    </tr>
+                                                                </tbody> -->
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: green; font-weight: bold;">OK</td>
+                                                                        <td class="text-center">PCBA</td>
+                                                                        <td class="text-center">Stencil</td>
+                                                                        <td class="text-center"><a href="../file/example.pdf">Open file</a></td>
+                                                                        <td class="text-center">Document was complete</td>
+                                                                        <td class="text-center"><span class="success">Success</span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red; font-weight: bold;">NG</td>
+                                                                        <td class="text-center">PCBA</td>
+                                                                        <td class="text-center">Forming Fixture (CMC area)</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">Waiting customer talk</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_doc_Modal">Update</button></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Report Require -->
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="card-title"><i class="fa fa-file-text"></i> REPORT REQUIREMENT</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-body card-dashboard table-responsive" style="padding-top: 0;">
+                                                    <div class="row">
+                                                        <div class="card-body responsive" style="padding: 0;">
+                                                            <table id="doc_req" class="table table-striped table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-center" style="width: 10%;">Status</th>
+                                                                        <th class="text-center" style="width: 20%;">Document</th>
+                                                                        <th class="text-center" style="width: 10%;">Require</th>
+                                                                        <th class="text-center" style="width: 15%;">Attached File</th>
+                                                                        <th class="text-center">Remark</th>
+                                                                        <th class="text-center">Detail</th>
+                                                                        <th class="text-center" style="width: 15%;">Approval</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red; font-weight: bold;">NG</td>
+                                                                        <td class="text-center">FAS</td>
+                                                                        <td class="text-center"><i class="fa fa-check-circle" style="color: green;"></i></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_roport_modal">Update</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: red; font-weight: bold;">NG</td>
+                                                                        <td class="text-center">DFM, DFA, DFT</td>
+                                                                        <td class="text-center"><i class="fa fa-check-circle" style="color: green;"></i></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-primary mb-0" data-toggle="modal" data-target="#add_roport_modal">Update</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: gray; font-weight: bold;">NA</td>
+                                                                        <td class="text-center">FMEA</td>
+                                                                        <td class="text-center disabled"><i class="fa fa-minus-circle" style="color: rgb(108, 65, 65);"></i></td>
+                                                                        <td class="text-center"><span>Not required</span></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-secondary mb-0" data-toggle="modal" data-target="#request_modal">Request</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center" style="color: gray; font-weight: bold;">NA</td>
+                                                                        <td class="text-center">PPAP</td>
+                                                                        <td class="text-center disabled"><i class="fa fa-minus-circle" style="color: rgb(108, 65, 65);"></i></td>
+                                                                        <td class="text-center"><span>Not required</span></td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center">-</td>
+                                                                        <td class="text-center"><button class="btn btn-secondary mb-0" data-toggle="modal" data-target="#request_modal">Request</button></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Progression -->
+                            <section>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header bg-primary white" style="padding-bottom: 22.5px;">
+                                                <h4 class="card-title">PROGRESSION</h4>
+                                            </div>
+                                            <!-- Commitment date -->
+                                            <div class="card-header mb-0">
+                                                <h4 class="card-title"><i class="fa fa-calendar-day"></i> COMMITMENT DATE</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-body card-dashboard table-responsive" style="padding-top: 0; padding-bottom: 0;">
+                                                    <div class="row mb-3">
+                                                        <div class="card-body responsive" style="padding: 0;">
+                                                            <table id="doc_req" class="table table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-center"></th>
+                                                                        <th class="text-center" style="width: 30%;">Kick off date</th>
+                                                                        <th class="text-center" style="width: 30%;">Original build date</th>
+                                                                        <th class="text-center" style="width: 30%;">Ship date</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th class="text-center">Plan</th>
+                                                                        <td class="text-center"><span class="text-primary" id="kick_off_date_plan" name="kick_off_date_plan">20/08/2024</span></td>
+                                                                        <td class="text-center"><span class="text-primary" id="original_build_date_plan" name="original_build_date_plan">08/10/2024</span></td>
+                                                                        <td class="text-center"><span class="text-primary" id="ship_date_plan" name="ship_date_plan">22/10/2024</span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="text-center">Actual</th>
+                                                                        <td class="text-center"><span class="text-primary" name="kick_off_date_actual" id="kick_off_date_actual">20/08/2024</span></td>
+                                                                        <td class="text-center"><input required name="original_build_date_actual" id="original_build_date_actual" type="date" class="form-control input-sm"></td>
+                                                                        <td class="text-center"><input required name="ship_date_actual" id="ship_date_actual" type="date" class="form-control input-sm"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="npi_gate" class="form-label">Shipped Quantity : </label>
+                                                        <div class="col-3">
+                                                            <input type="number" class="form-control" id="shipped_qty" min="0" step="1">
+                                                        </div>
+                                                        <label for="summary_detail" class="form-label">Summary Detail : </label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" id="summary_detail">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer" style="display: flex; justify-content: flex-end;">
+                                                <button type="button" class="btn btn-success mb-0">Submit</button>
+                                            </div>
+                                        </div>
+                                        <!-- Issue update -->
+                                        <div class="card">
+                                            <div class="card-header mb-0">
+                                                <h4 class="card-title"><i class="fa fa-calendar-day"></i> ISSUE UPDATE</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-body card-dashboard table-responsive" style="padding-top: 0; padding-bottom: 0;">
+                                                    <div class="row mb-3">
+                                                        <div class="card-body responsive" style="padding: 0;">
+                                                            <table id="doc_req" class="table table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-center" style="width: 20%;">Date</th>
+                                                                        <th class="text-center" style="width: 20%;">Issue type</th>
+                                                                        <th class="text-center">Detail</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-center">20/08/2024</td>
+                                                                        <td class="text-center">Major</td>
+                                                                        <td class="text-center">Test system (Major)</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="issue_type" class="form-label">Issue type : </label>
+                                                        <div class="col-3">
+                                                            <select class="form-select form-control mb-3" id="issue_type">
+                                                                <option class="text-center" selected>-- Select Issue type --</option>
+                                                                <option value="Cool">Cool</option>
+                                                                <option value="Miner">Miner</option>
+                                                                <option value="Major">Major</option>
+                                                            </select>
+                                                        </div>
+                                                        <label for="issue_detail" class="form-label">Issue Detail : </label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" id="issue_detail">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer" style="display: flex; justify-content: flex-end;">
+                                                <button type="button" class="btn btn-success mb-0">Submit</button>
+                                            </div>
+                                        </div>
+                                        <!-- Follow up -->
+                                        <div class="card">
+                                            <div class="card-header d-flex justify-content-between align-items-center">
+                                                <h4 class="card-title"><i class="fa fa-clipboard-check"></i> FOLLOW UP</h4>
+                                                <button type="button" class="btn btn-raised btn-primary" data-toggle="modal" data-target="#update_modal">
+                                                    <i class="fa fa-check-circle"></i> Update
+                                                </button>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-body card-dashboard table-responsive" style="padding-top: 0;">
+                                                    <div class="row">
+                                                        <div class="card-body responsive" style="padding: 0;">
+                                                            <table id="doc_req" class="table table-striped table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-center" style="width: 15%;">Date Time</th>
+                                                                        <th class="text-center" style="width: 15%;">User</th>
+                                                                        <th class="text-center" style="width: 15%;">Status</th>
+                                                                        <th class="text-center">Follow up Detail</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-center" colspan="4">No data available in table</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- History -->
+                            <section>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header bg-primary white" style="padding-bottom: 22.5px;">
+                                                <h4 class="card-title"><i class="fa fa-clock"></i> HISTORY</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-body card-dashboard table-responsive" style="padding-top: 0;">
+                                                    <div class="row">
+                                                        <div class="card-body responsive" style="padding: 0;">
+                                                            <table id="doc_req" class="table table-striped table-hover table-bordered nowrap w-100" style="margin-bottom: 0;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-center" style="width: 10%;">Date Time</th>
+                                                                        <th class="text-center" style="width: 10%;">By</th>
+                                                                        <th class="text-center" style="width: 8%;">Status</th>
+                                                                        <th class="text-center" style="width: 15%;">Task</th>
+                                                                        <th class="text-center" style="width: 15%;">Comment</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-center" colspan="5">No data available in table</td>
+                                                                    </tr>
+                                                                    <!-- <tr>
+                                                                        <td>20/08/2024 11:59</td>
+                                                                        <td>Amonrada Chaikote</td>
+                                                                        <td class="text-center"><span class="badge bg-primary text-light">Requested</span></td>
+                                                                        <td>Create request</td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>20/08/2024 13:07</td>
+                                                                        <td>Songklod boonsuwanchot</td>
+                                                                        <td class="text-center"><span class="badge bg-success text-light">Approved</span></td>
+                                                                        <td>Approved "Process Flow" document</td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>20/08/2024 13:14</td>
+                                                                        <td>Songklod boonsuwanchot</td>
+                                                                        <td class="text-center"><span class="badge bg-danger text-light">Return</span></td>
+                                                                        <td>Approved "PCBA" document</td>
+                                                                        <td></td>
+                                                                    </tr> -->
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Re-assign -->
+        <div class="modal fade" id="responsibleModal" tabindex="-1" aria-labelledby="responsibleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="responsibleModalLabel">Assign New Responsible</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="newResponsible">Select New Responsible Person</label>
+                                <select class="form-control" id="newResponsible">
+                                    <option value="Person1">Person 1</option>
+                                    <option value="Person2">Person 2</option>
+                                    <option value="Person3">Person 3</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+        <!-- Approval modal -->
+        <div class="modal fade" id="approval_modal" tabindex="-1" aria-labelledby="approval_modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="labelModalLabel">APPROVAL FORM</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-check form-check-inline mr-3">
+                            <input class="form-check-input custom-radio" type="radio" name="aproval_result" id="approve" value="approve" checked>
+                            <label class="form-check-label custom-label" for="approve">Approve</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input custom-radio-2" type="radio" name="aproval_result" id="return" value="return">
+                            <label class="form-check-label custom-label-2" for="return">Return to PGMNT</label>
+                        </div>
+                        <div class="form-group mt-3" id="remarkGroup" hidden>
+                            <label for="box_build_remark">Detail</label>
+                            <textarea class="form-control input-sm" rows="2" name="box_build_remark" id="box_build_remark"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add new document modal -->
+        <div class="modal fade" id="upload_new_modal" tabindex="-1" aria-labelledby="upload_new_modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="add_doc_ModalLabel">UPLOAD NEW DOCUMENT FOR APPROVE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="tooling_formFile">Attached File :</label>
+                            <input type="file" name="tooling_formFile" id="tooling_formFile">
+                        </div>
+                        <div class="form-group">
+                            <label for="box_build_remark">Remark :</label>
+                            <textarea class="form-control input-sm" name="box_build_remark" id="box_build_remark" rows="3"></textarea>
+                        </div>
+                    </div>                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add new document modal -->
+        <div class="modal fade" id="tooling_updatemodal" tabindex="-1" aria-labelledby="tooling_updatemodalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="tooling_updatemodalLabel">TOOLING UPDATE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-check-label" for="toolingtypeOptions" style="margin-right: 16px;">Type : </label>
+                            <select class="form-select form-control mb-3" id="issue_type">
+                                <option class="text-center" selected>-- Select Issue type --</option>
+                                <option value="PCBA">PCBA</option>
+                                <option value="Box Build">Box Build</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label" for="doc_name" style="margin-right: 16px;">Tooling : </label>
+                            <select class="form-select form-control mb-3" id="doc_nameListOptions" id="doc_name" name="doc_name">
+                                <option value="Stencil">Stencil</option>
+                                <option value="Forming Fixture (CMC area)">Forming Fixture (CMC area)</option>
+                                <option value="Wave carrier (normal)">Wave carrier (normal)</option>
+                                <option value="Wave carrier (selective)">Wave carrier (selective)</option>
+                                <option value="Top cover for wave carrier">Top cover for wave carrier</option>
+                                <option value="Manual solder fixture">Manual solder fixture</option>
+                                <option value="Press fit nut">Press fit nut</option>
+                                <option value="Assembly fixture">Assembly fixture</option>
+                                <option value="Fixture support for RTV glue">Fixture support for RTV glue</option>
+                                <option value="Coating/Potting Fixture">Coating/Potting Fixture</option>
+                                <option value="Simple tooling/equipment">Simple tooling/equipment</option>
+                                <option value="Complex tooling/equipment">Complex tooling/equipment</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label" for="new_doc_statusOptions">Status : </label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio" type="radio" name="new_doc_statusOptions" id="doc_OK" value="OK" checked>
+                                <label class="form-check-label custom-label" for="doc_OK">OK</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio-3" type="radio" name="new_doc_statusOptions" id="doc_NA" value="NA">
+                                <label class="form-check-label custom-label-3" for="doc_NA">NA</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio-2" type="radio" name="new_doc_statusOptions" id="doc_NG" value="NG">
+                                <label class="form-check-label custom-label-2" for="doc_NG">NG</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tooling_formFile">Attached File :</label>
+                            <input type="file" name="tooling_formFile" id="tooling_formFile">
+                        </div>
+                        <div class="form-group">
+                            <label for="box_build_remark">Remark :</label>
+                            <textarea class="form-control input-sm" name="box_build_remark" id="box_build_remark" rows="3"></textarea>
+                        </div>
+                    </div>                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Request Document modal -->
+        <div class="modal fade" id="request_modal" tabindex="-1" aria-labelledby="request_modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header bg-primary white">
+                    <h5 class="modal-title" id="labelModalLabel">REQUEST DOCUMENT FORM</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="box_build_remark">Detail</label>
+                        <textarea class="form-control input-sm" rows="3" name="box_build_remark" id="box_build_remark"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                    <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add new document modal -->
+        <div class="modal fade" id="add_doc_Modal" tabindex="-1" aria-labelledby="add_doc_ModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="add_doc_ModalLabel">DOCUMENT REQUIRE UPDATE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-check-label">Status : </label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio" type="radio" name="statusRadioOptions" id="doc_OK" value="OK" checked>
+                                <label class="form-check-label custom-label" for="doc_OK">OK</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio-3" type="radio" name="statusRadioOptions" id="doc_NA" value="NA">
+                                <label class="form-check-label custom-label-3" for="doc_NA">NA</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio-2" type="radio" name="statusRadioOptions" id="doc_NG" value="NG">
+                                <label class="form-check-label custom-label-2" for="doc_NG">NG</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tooling_formFile">Attached File :</label>
+                            <input type="file" name="tooling_formFile" id="tooling_formFile">
+                        </div>
+                        <div class="form-group">
+                            <label for="box_build_remark">Remark :</label>
+                            <textarea class="form-control input-sm" name="box_build_remark" id="box_build_remark" rows="3"></textarea>
+                        </div>
+                    </div>                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add new document modal -->
+        <div class="modal fade" id="add_roport_modal" tabindex="-1" aria-labelledby="add_roport_modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="add_roport_modalLabel">REPORT REQUIRE UPDATE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="form-group">
+                            <label class="form-check-label" for="report_statusOptions" style="margin-right: 16px;">Status : </label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio" type="radio" name="report_statusOptions" id="report_OK" value="OK" checked>
+                                <label class="form-check-label custom-label" for="report_OK">OK</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio-3" type="radio" name="report_statusOptions" id="report_NA" value="NA">
+                                <label class="form-check-label custom-label-3" for="report_NA">NA</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio-2" type="radio" name="report_statusOptions" id="report_NG" value="NG">
+                                <label class="form-check-label custom-label-2" for="report_NG">NG</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tooling_formFile">Attached File :</label>
+                            <input type="file" name="tooling_formFile" id="tooling_formFile">
+                        </div>
+                        <div class="form-group">
+                            <label for="box_build_remark">Detail :</label>
+                            <textarea class="form-control input-sm" name="box_build_remark" id="box_build_remark" rows="3"></textarea>
+                        </div>
+                    </div>                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tooling preparing update modal -->
+        <div class="modal fade" id="tool_modal" tabindex="-1" aria-labelledby="tool_modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="labelModalLabel">TOOL PREPARING</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-check-label" for="tool_statusOptions" style="margin-right: 16px;">Tool Preparing Result : </label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio" type="radio" name="tool_statusOptions" id="tool_OK" value="OK" checked>
+                                <label class="form-check-label custom-label" for="tool_OK">OK</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio-3" type="radio" name="tool_statusOptions" id="tool_NA" value="NA">
+                                <label class="form-check-label custom-label-3" for="tool_NA">NA</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input custom-radio-2" type="radio" name="tool_statusOptions" id="tool_NG" value="NG">
+                                <label class="form-check-label custom-label-2" for="tool_NG">NG</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tooling_formFile">Attached File :</label>
+                            <input type="file" name="tooling_formFile" id="tooling_formFile">
+                        </div>
+                        <div class="form-group">
+                            <label for="box_build_remark">Remark :</label>
+                            <textarea class="form-control input-sm" name="box_build_remark" id="box_build_remark" rows="3"></textarea>
+                        </div>
+                    </div>                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Follow up preparing update modal -->
+        <div class="modal fade" id="update_modal" tabindex="-1" aria-labelledby="update_modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary white">
+                        <h5 class="modal-title" id="labelModalLabel">UPDATE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closehistory">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="helpInputTop">Status:</label>
+                        <div class="row mb-2">
+                            <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                <select name="comment_type" id="comment_type" class="form-control">
+                                    <option value="" selected disabled>-- Select relevant fields --</option>
+                                    <option value="Program">Program Management</option>
+                                    <option value="Product">Product Engineer</option>
+                                    <option value="Test">Test Engineer</option>
+                                    <option value="Quality">Quality Engineer</option>
+                                    <option value="Closed">Closed Ticket</option>
+                                    <option value="Cancel/Reject">Cancel/Reject</option>
+                                </select>
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="helpInputTop">Comment:</label>
+                                    <textarea class="form-control" id="descTextarea" rows="3" maxlength="500" placeholder="Textarea with description" name="comment" required></textarea>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <fieldset class="form-group">
+                                    <label>Tag Operator:</label>
+                                    <div class="input-group">
+                                        <select class="js-example-basic-multiple form-control" name="tag[]" multiple="multiple" id="tag" style="width:100%;">
+                                            <optgroup class="select2-result-selectable" label="User">
+                                                <option value="52743">Kittipong Chankhotr</option>
+                                                <option value="51156">Tsung ta Tsai</option>
+                                            </optgroup>
+                                            <optgroup label="Staff">
+                                                <option value="53951">Amitita Palacheewa</option>
+                                                <option value="36593">Anan Jaipradub</option>
+                                                <option value="10380">Annop Chuntong</option>
+                                                <option value="48950">Anukul Duangphol</option>
+                                                <option value="53703">Areeya Samphao</option>
+                                                <option value="53037">Aukrit Jitsangawong</option>
+                                                <option value="52981">Ezra Kongsuwan</option>
+                                                <option value="51459">Jirawan Rod-in</option>
+                                                <option value="51566">Jitpat Jitturongarporn</option>
+                                                <option value="22874">Jugtupong Pinnak</option>
+                                                <option value="10421">Jutamas Kumbumrung</option>
+                                                <option value="51815">Kanokporn Dueansaenphut</option>
+                                                <option value="50730">Kanvarah Nuanpen</option>
+                                                <option value="45387">Kitanan Siriwattana</option>
+                                                <option value="48576">Kittakarn Seeto</option>
+                                                <option value="49398">Natipong Buata</option>
+                                                <option value="52591">Natnarin Singhanai</option>
+                                                <option value="47812">Panithan Seeson</option>
+                                                <option value="42848">Passakorn Haman</option>
+                                                <option value="52836">Phuripat Yangngam</option>
+                                                <option value="47810">Pongsapak Inprasit</option>
+                                                <option value="50916">Prayot Vongtarua</option>
+                                                <option value="52739">Rungruj Titachotnimit</option>
+                                                <option value="52898">Sachin Rudrawar</option>
+                                                <option value="52578">Sanyapong Youkachen</option>
+                                                <option value="52948">Siravich Umpornsrisupap</option>
+                                                <option value="50848">Sittipol Owcharoen</option>
+                                                <option value="93061">Smit Qiao</option>
+                                                <option value="53191">Sudarat Rungsawang</option>
+                                                <option value="45401">Sujaray Sayan</option>
+                                                <option value="47813">Sukapoj Hirul</option>
+                                                <option value="21375">Suriya Chuayjit</option>
+                                                <option value="93046">Tanakit Wonglakorn</option>
+                                                <option value="50932">Tanapum Nilkamhaeng</option>
+                                                <option value="51592">Tanased Wanichkamonnull</option>
+                                                <option value="47946">Topong Sukhumsawad</option>
+                                                <option value="93067">Vayu Thongnirundorn</option>
+                                                <option value="52740">Vorapol Chavalitjamlert</option>
+                                                <option value="27962">Wasan Songdoungthum</option>
+                                                <option value="KH50004">Chhon Bunchhen</option>
+                                                <option value="KH51004">Tin Pisith</option>
+                                                <option value="40868">Apirak Saengsie</option>
+                                            </optgroup>
+                                            <optgroup label="Group Staff">
+                                                <option value="G0001">Basis Team</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closelabel" data-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="../js/popper.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+        <script src="../js/prism.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.matchHeight-min.js" type="text/javascript"></script>
+        <script src="../js/screenfull.min.js" type="text/javascript"></script>
+        <script src="../js/pace.min.js" type="text/javascript"></script>
+        <script src="../js/app-sidebar.js" type="text/javascript"></script>
+        <script src="../js/notification-sidebar.js" type="text/javascript"></script>
+        <script src="../js/customizer.js" type="text/javascript"></script>
+
+        <!-- Select2 CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.min.css" rel="stylesheet" />
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Select2 JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"></script>
+
+        <script>
+            const roleOptions = {
+                "NPI / Product Engineer": ["NPI Engineer 1", "NPI Engineer 2", "NPI Engineer 3"],
+                "Quality Engineer": ["Quality Engineer 1", "Quality Engineer 2", "Quality Engineer 3"],
+                "Test Engineer": ["Test Engineer 1", "Test Engineer 2", "Test Engineer 3"],
+                "Production": ["Production Lead 1", "Production Lead 2", "Production Lead 3"]
+            };
+            
+            document.addEventListener('DOMContentLoaded', function () {
+                const buttons = document.querySelectorAll('button[data-role]');
+                
+                buttons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const role = this.getAttribute('data-role');
+                        
+                        // Set the modal header to the role
+                        const modalTitle = document.getElementById('responsibleModalLabel');
+                        modalTitle.textContent = `Assign New ${role}`;
+                        
+                        // Get the modal element
+                        const modalElement = document.getElementById('responsibleModal');
+                        
+                        // Update the select options based on the role
+                        const selectInput = document.getElementById('newResponsible');
+                        selectInput.innerHTML = "";  // Clear existing options
+                        
+                        roleOptions[role].forEach(option => {
+                            const optionElement = document.createElement('option');
+                            optionElement.value = option;
+                            optionElement.textContent = option;
+                            selectInput.appendChild(optionElement);
+                        });
+                        
+                        // Show the modal
+                        const modal = new bootstrap.Modal(modalElement);
+                        modal.show();
+                    });
+                });
+            });
+            
+            $(document).ready(function() {
+                $('.js-example-basic-multiple').select2({
+                    placeholder: "-- Select relevant persons. --", // Optional placeholder
+                    allowClear: true // Allow user to clear selection
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const approveRadio = document.getElementById('approve');
+                const returnRadio = document.getElementById('return');
+                const remarkGroup = document.getElementById('remarkGroup');
+
+                function toggleRemark() {
+                    if (returnRadio.checked) {
+                        remarkGroup.hidden = false;
+                    } else {
+                        remarkGroup.hidden = true;
+                    }
+                }
+                toggleRemark();
+
+                approveRadio.addEventListener('change', toggleRemark);
+                returnRadio.addEventListener('change', toggleRemark);
+            });
+
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const today = new Date().toISOString().split('T')[0];
+                document.querySelectorAll('input[type="date"]').forEach(input => {
+                    input.value = today;
+                });
+            });
+
+            //$(document).ready(function() {
+            //    $('.js-example-basic-single').select2();
+            //});\
+
+            $('.js-example-basic-single').select2();
+        </script>
+    </body>
+</html>
