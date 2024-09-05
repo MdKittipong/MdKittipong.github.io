@@ -181,16 +181,11 @@
                                     <fieldset class="form-group">
                                       <label for="4m_change">4M Change:</label>
                                       <select class="form-control" id="4m_change" name="4m_change" required="">
-                                        <option value="">------ Select Reason ------</option>
+                                        <option value="" selected disabled>------ Select Reason ------</option>
                                         <option value="Man">Man Power</option>
                                         <option value="Machine">Machine</option>
                                         <option value="Material">Material</option>
                                         <option value="Method">Method</option>
-                                        <!-- <option value="">------ Select Reason ------</option>
-                                        <option value="7">Reason 1 (lead time 7 days)</option>
-                                        <option value="14">Reason 2 (lead time 14 days)</option>
-                                        <option value="21">Reason 3 (lead time 21 days)</option>
-                                        <option value="28">Reason 4 (lead time 28 days)</option> -->
                                       </select>
                                     </fieldset>
                                   </div>
@@ -214,12 +209,21 @@
                                       <table id="taTable" class="table table-striped table-hover table-bordered nowrap w-100 dataTable no-footer" role="grid">
                                         <thead>
                                           <tr role="row">
+                                            <th class="text-center sorting_disabled">Scope</th>
                                             <th class="text-center sorting_disabled">Work Order</th>
                                             <th class="text-center sorting_disabled">Quantity (EA)</th>
                                           </tr>
                                         </thead>
                                         <tbody>
                                           <tr role="row" class="odd">
+                                            <td>
+                                              <select class="form-control" name="scope[]" required="">
+                                                <option value="" disabled selected>------ Select Reason ------</option>
+                                                <option value="WIP">WIP</option>
+                                                <option value="F/G">F/G</option>
+                                                <option value="NEW">NEW</option>
+                                              </select>
+                                            </td>
                                             <td><input required name="workorder[]" maxlength="12" type="text" class="form-control input-sm"></td>
                                             <td><input required name="qty[]" type="number" min="0" step="1" class="form-control input-sm"></td>
                                           </tr>
@@ -519,6 +523,7 @@
       
       $('#addRow').on('click', function () {
         table.row.add([
+          '<select class="form-control" name="scope[]" required=""><option value="" disabled selected>------ Select Reason ------</option><option value="WIP">WIP</option><option value="F/G">F/G</option><option value="NEW">NEW</option></select>',
           '<input required name="workorder[]" maxlength="30" type="text" class="form-control input-sm">',
           '<input required name="qty[]" type="number" min="0" step="1" class="form-control input-sm">'
         ]).draw(false);

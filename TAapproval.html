@@ -330,7 +330,7 @@
                                                                     <div class="col-lg-5 mb-1">
                                                                         <fieldset class="form-group">
                                                                             <label for="expired_date">Expired Date (+30 days):</label>
-                                                                            <input type="date" class="form-control" id="expired_date" name="expired_date" required="" aria-describedby="expired_dateHelp">
+                                                                            <input type="date" class="form-control" id="expired_date" name="expired_date" required="" aria-describedby="expired_dateHelp" readonly>
                                                                             <div id="expired_dateHelp" class="form-text" style="font-size: 10px;">Unless specify, the Temporary Authorization has 2 weeks life-time before obsoleted by DCC</div>
                                                                         </fieldset>
                                                                     </div>
@@ -339,11 +339,11 @@
                                                                             <label for="training_required">Training Required:</label>
                                                                             <div class="row ml-2">
                                                                                 <div class="form-check form-check-inline">
-                                                                                    <input class="form-check-input" type="radio" name="training_required" id="Yes" value="Yes" checked>
+                                                                                    <input class="form-check-input" type="radio" name="training_required" id="Yes" value="Yes">
                                                                                     <label class="form-check-label" for="Yes">Yes</label>
                                                                                 </div>
                                                                                 <div class="form-check form-check-inline ml-4">
-                                                                                    <input class="form-check-input" type="radio" name="training_required" id="No" value="No">
+                                                                                    <input class="form-check-input" type="radio" name="training_required" id="No" value="No" checked>
                                                                                     <label class="form-check-label" for="No">No</label>
                                                                                 </div>
                                                                             </div>
@@ -542,6 +542,30 @@
                 document.querySelectorAll('input[type="date"]').forEach(input => {
                     input.value = today;
                 });
+            });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const effectiveDateInput = document.getElementById('effective_date');
+                const expiredDateInput = document.getElementById('expired_date');
+        
+                // Function to update the expired date based on effective date
+                function updateExpiredDate() {
+                    const effectiveDate = new Date(effectiveDateInput.value);
+                    if (!isNaN(effectiveDate.getTime())) {
+                        effectiveDate.setDate(effectiveDate.getDate() + 30);
+                        expiredDateInput.value = effectiveDate.toISOString().split('T')[0];
+                    }
+                }
+        
+                // Set default effective date to today
+                const today = new Date();
+                effectiveDateInput.value = today.toISOString().split('T')[0];
+        
+                // Set default expired date to today + 30 days
+                updateExpiredDate();
+        
+                // Update expired date in real-time when effective date is changed
+                effectiveDateInput.addEventListener('change', updateExpiredDate);
             });
 
             document.addEventListener('DOMContentLoaded', function() {
