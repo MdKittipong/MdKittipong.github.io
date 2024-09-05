@@ -223,8 +223,8 @@
                                                                 <div class="row">
                                                                     <div class="col-lg-12 mb-1">
                                                                         <fieldset class="form-group">
-                                                                            <label for="helpInputTop">Description for Change:</label>
-                                                                            <textarea class="form-control" id="descTextarea" rows="3" min="80px;" placeholder="Enter description for change" name="description" maxlength="900" readonly>ให้ CMC เปลี่ยนตำแหน่ง QR code Laser Mark จากหน้า Top มา Laser ที่หน้า Bottom ตามรูปด้านล่าง โดยให้ใช้ QR Code size 3.0 mm -0.2 mm</textarea>
+                                                                            <label for="reason">Reason for Change:</label>
+                                                                            <textarea class="form-control" id="reason" rows="3" min="80px;" placeholder="Enter description for change" name="reason" maxlength="900" readonly>ให้ CMC เปลี่ยนตำแหน่ง QR code Laser Mark จากหน้า Top มา Laser ที่หน้า Bottom ตามรูปด้านล่าง โดยให้ใช้ QR Code size 3.0 mm -0.2 mm</textarea>
                                                                         </fieldset>
                                                                     </div>
                                                                 </div>
@@ -349,18 +349,11 @@
                                                                             </div>
                                                                         </fieldset>
                                                                     </div>
-                                                                    <div class="col-lg-4 mb-1">
+                                                                    
+                                                                    <div class="col-lg-4 mb-1" id="training_date_container">
                                                                         <fieldset class="form-group">
                                                                             <label for="training_date">Training Date:</label>
                                                                             <input type="date" class="form-control" id="training_date" name="training_date" required="">
-                                                                        </fieldset>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-lg mb-1">
-                                                                        <fieldset class="form-group">
-                                                                            <label for="reason_for_change">Reason for change:</label>
-                                                                            <textarea type="text" class="form-control" id="reason_for_change" name="reason_for_change" required=""></textarea>
                                                                         </fieldset>
                                                                     </div>
                                                                 </div>
@@ -402,17 +395,17 @@
                                                                         <fieldset class="form-group">
                                                                             <label for="permanent_required" aria-describedby="permanent_requiredHelp">Does the change require permanent ECN ?</label>
                                                                             <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="permanent_required" id="permanent_required_yes" value="Yes" checked>
+                                                                                <input class="form-check-input" type="radio" name="permanent_required" id="permanent_required_yes" value="Yes">
                                                                                 <label class="form-check-label" for="permanent_required_yes">Yes <span style="color: rgb(164, 95, 95);">(If yes the originator must raise an Engineering Change Notice.)</span></label>
                                                                             </div>
                                                                             <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="permanent_required" id="permanent_required_no" value="No">
+                                                                                <input class="form-check-input" type="radio" name="permanent_required" id="permanent_required_no" value="No" checked>
                                                                                 <label class="form-check-label" for="permanent_required_no">No</label>
                                                                             </div>
                                                                         </fieldset>
                                                                     </div>
                                                                     
-                                                                    <div class="col-lg-5 col-md-12 mb-1">
+                                                                    <div class="col-lg-5 col-md-12 mb-1" id="by_date_container">
                                                                         <fieldset class="form-group">
                                                                             <label for="by_date">By Date:</label>
                                                                             <input type="date" class="form-control" id="by_date" name="by_date" required="">
@@ -420,86 +413,98 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <div class="col-lg-5 col-md-12 mb-1">
+                                                                    <div class="col-lg-7 col-md-12 mb-1">
                                                                         <fieldset class="form-group">
                                                                             <label for="distribution">Distribution:</label>
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <div class="form-check form-check-inline ml-2">
+                                                                                            <input class="form-check-input" type="checkbox" name="distribution" id="distribution_qa" value="QA">
+                                                                                            <label class="form-check-label" for="distribution_qa">QA</label>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <div class="form-check form-check-inline ml-2">
+                                                                                            <input class="form-check-input" type="checkbox" name="distribution" id="distribution_pd" value="PD">
+                                                                                            <label class="form-check-label" for="distribution_pd">PD</label>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="form-check form-check-inline ml-2">
+                                                                                            <input class="form-check-input" type="checkbox" name="distribution" id="distribution_cmccms" value="CMC/CMS">
+                                                                                            <label class="form-check-label" for="distribution_cmccms">CMC/CMS</label>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="form-check form-check-inline ml-2">
+                                                                                            <input class="form-check-input" type="checkbox" name="distribution" id="distribution_be" value="B/E">
+                                                                                            <label class="form-check-label" for="distribution_be">B/E</label>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="form-check form-check-inline ml-2">
+                                                                                            <input class="form-check-input" type="checkbox" name="distribution" id="distribution_be1" value="B/E1 (PCBA)">
+                                                                                            <label class="form-check-label" for="distribution_be1">B/E1 (PCBA)</label>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td></td>
+                                                                                    <td>
+                                                                                        <div class="form-check form-check-inline ml-2">
+                                                                                            <input class="form-check-input" type="checkbox" name="distribution" id="distribution_cob" value="COB">
+                                                                                            <label class="form-check-label" for="distribution_cob">COB</label>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td></td>
+                                                                                    <td>
+                                                                                        <div class="form-check form-check-inline ml-2">
+                                                                                            <input class="form-check-input" type="checkbox" name="distribution" id="distribution_be2" value="B/E2 (Box Build)">
+                                                                                            <label class="form-check-label" for="distribution_be2">B/E2 (Box Build)</label>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td></td>
+                                                                                    <td>
+                                                                                        <div class="form-check form-check-inline ml-2">
+                                                                                            <input class="form-check-input" type="checkbox" name="distribution" id="distribution_smt" value="SMT">
+                                                                                            <label class="form-check-label" for="distribution_smt">SMT</label>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td></td>
+                                                                                    <td>
+                                                                                        <div class="form-check form-check-inline ml-2">
+                                                                                            <input class="form-check-input" type="checkbox" name="distribution" id="distribution_imt" value="IMT">
+                                                                                            <label class="form-check-label" for="distribution_imt">IMT</label>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td colspan="4">
+                                                                                        <div class="form-check form-check-inline ml-2">
+                                                                                            <label class="form-check-label" for="distribution_other">Other</label>
+                                                                                            <input class="form-check-input ml-3" type="input" name="distribution_other" id="distribution_other">
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
                                                                             <div class="row ml-2">
-                                                                                <label class="form-check-label">QA : </label>
-                                                                                <div class="form-check form-check-inline ml-2">
-                                                                                    <input class="form-check-input" type="checkbox" name="distribution" id="distribution_qa" value="QA">
-                                                                                    <label class="form-check-label" for="distribution_qa">QA</label>
-                                                                                </div>
+                                                                                
+                                                                                
                                                                             </div>
-                                                                            <div class="row ml-2">
-                                                                                <label class="form-check-label">PD : </label>
-                                                                                <div class="form-check form-check-inline ml-2">
-                                                                                    <input class="form-check-input" type="checkbox" name="distribution" id="distribution_cmccms" value="CMC/CMS">
-                                                                                    <label class="form-check-label" for="distribution_cmccms">CMC/CMS</label>
-                                                                                </div>
-                                                                                <div class="form-check form-check-inline">
-                                                                                    <input class="form-check-input" type="checkbox" name="distribution" id="distribution_cob" value="COB">
-                                                                                    <label class="form-check-label" for="distribution_cob">COB</label>
-                                                                                </div>
-                                                                                <div class="form-check form-check-inline">
-                                                                                    <input class="form-check-input" type="checkbox" name="distribution" id="distribution_smt" value="SMT">
-                                                                                    <label class="form-check-label" for="distribution_smt">SMT</label>
-                                                                                </div>
-                                                                                <div class="form-check form-check-inline">
-                                                                                    <input class="form-check-input" type="checkbox" name="distribution" id="distribution_imt" value="IMT">
-                                                                                    <label class="form-check-label" for="distribution_imt">IMT</label>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row ml-2">
-                                                                                <label class="form-check-label">B/E : </label>
-                                                                                <div class="form-check form-check-inline ml-2">
-                                                                                    <input class="form-check-input" type="checkbox" name="distribution" id="distribution_be1" value="B/E1 (PCBA)">
-                                                                                    <label class="form-check-label" for="distribution_be1">B/E1 (PCBA)</label>
-                                                                                </div>
-                                                                                <div class="form-check form-check-inline">
-                                                                                    <input class="form-check-input" type="checkbox" name="distribution" id="distribution_be2" value="B/E2 (Box Build)">
-                                                                                    <label class="form-check-label" for="distribution_be2">B/E2 (Box Build)</label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </fieldset>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="card" hidden>
-                                                <div class="card-header mb-2">
-                                                    <h4 class="card-title">TA Issue (Type 2)</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="card-content">
-                                                        <div class="px-3">
-                                                            <div class="form-body">
-                                                                <div class="row">
-                                                                    <div class="col-xl-2 col-lg-2 col-md-12 mb-1">
-                                                                        <fieldset class="form-group">
-                                                                            <label for="customer">Customer:</label>
-                                                                            <input type="text" class="form-control" maxlength="3" id="customer" name="customer" required="">
-                                                                        </fieldset>
-                                                                    </div>
-                                                                    <div class="col-lg-4 mb-1">
-                                                                        <fieldset class="form-group">
-                                                                            <label for="project_no">Project no.:</label>
-                                                                            <input type="text" class="form-control" maxlength="100" id="project_no" name="project_no" required="">
-                                                                        </fieldset>
-                                                                    </div>
-                                                                    <div class="col-lg-4 mb-1">
-                                                                        <fieldset class="form-group">
-                                                                            <label for="project_name">Project name:</label>
-                                                                            <input type="text" class="form-control" maxlength="100" id="project_name" name="project_name" required="">
-                                                                        </fieldset>
-                                                                    </div>
-                                                                    <div class="col-xl-2 col-lg-2 col-md-12 mb-1">
-                                                                        <fieldset class="form-group">
-                                                                            <label for="tel">Tel.:</label>
-                                                                            <input type="text" class="form-control" maxlength="10" id="tel" name="tel" required="">
                                                                         </fieldset>
                                                                     </div>
                                                                 </div>
@@ -537,6 +542,48 @@
                 document.querySelectorAll('input[type="date"]').forEach(input => {
                     input.value = today;
                 });
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const byDateContainer = document.getElementById('by_date_container');
+                const permanentRequiredYes = document.getElementById('permanent_required_yes');
+                const permanentRequiredNo = document.getElementById('permanent_required_no');
+        
+                function toggleByDate() {
+                    if (permanentRequiredYes.checked) {
+                        byDateContainer.style.display = 'block';
+                    } else {
+                        byDateContainer.style.display = 'none';
+                    }
+                }
+        
+                // Set initial visibility
+                toggleByDate();
+        
+                // Add event listeners to radio buttons
+                permanentRequiredYes.addEventListener('change', toggleByDate);
+                permanentRequiredNo.addEventListener('change', toggleByDate);
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const trainingDateContainer = document.getElementById('training_date_container');
+                const trainingRequiredYes = document.getElementById('Yes');
+                const trainingRequiredNo = document.getElementById('No');
+        
+                function toggleTrainingDate() {
+                    if (trainingRequiredYes.checked) {
+                        trainingDateContainer.style.display = 'block';
+                    } else {
+                        trainingDateContainer.style.display = 'none';
+                    }
+                }
+        
+                // Set initial visibility
+                toggleTrainingDate();
+        
+                // Add event listeners to radio buttons
+                trainingRequiredYes.addEventListener('change', toggleTrainingDate);
+                trainingRequiredNo.addEventListener('change', toggleTrainingDate);
             });
         </script>
     </body>
